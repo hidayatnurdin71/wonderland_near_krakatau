@@ -1,0 +1,1055 @@
+[gd_scene load_steps=83 format=2]
+
+[ext_resource path="res://3.png" type="Texture" id=1]
+[ext_resource path="res://scene/character.gd" type="Script" id=2]
+[ext_resource path="res://character/clurite.png" type="Texture" id=3]
+[ext_resource path="res://hitboxhurtbox/hitbox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tilemap/button/clurit_item.png" type="Texture" id=5]
+[ext_resource path="res://scene/dialog_box.gd" type="Script" id=6]
+[ext_resource path="res://tilemap/inventory/bar inventori2.png" type="Texture" id=7]
+[ext_resource path="res://tilemap/button/efekseleksi.png" type="Texture" id=8]
+[ext_resource path="res://tilemap/inventory/setting button.png" type="Texture" id=9]
+[ext_resource path="res://aksi.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Player/Joystick.tscn" type="PackedScene" id=11]
+[ext_resource path="res://tilemap/button/hand.png" type="Texture" id=12]
+[ext_resource path="res://aksi_clurit.tscn" type="PackedScene" id=13]
+[ext_resource path="res://tilemap/button/base_action.png" type="Texture" id=14]
+[ext_resource path="res://tilemap/button/dialogbox.png" type="Texture" id=15]
+[ext_resource path="res://tilemap/button/xbutton.png" type="Texture" id=16]
+[ext_resource path="res://mision/misipertama.gd" type="Script" id=17]
+[ext_resource path="res://tilemap/button/charatercowo.png" type="Texture" id=18]
+[ext_resource path="res://mision/harustangan.gd" type="Script" id=19]
+[ext_resource path="res://tilemap/button/charactercewe.png" type="Texture" id=20]
+[ext_resource path="res://tilemap/button/charactercewe2.png" type="Texture" id=21]
+[ext_resource path="res://font/font3.tres" type="DynamicFont" id=22]
+[ext_resource path="res://mision/cluritketemu.gd" type="Script" id=23]
+[ext_resource path="res://scene/selesaimisi1.gd" type="Script" id=24]
+[ext_resource path="res://scene/scriptawalgame.gd" type="Script" id=25]
+[ext_resource path="res://scene/dialooog.gd" type="Script" id=26]
+[ext_resource path="res://font/fontdefault.tres" type="DynamicFont" id=27]
+[ext_resource path="res://tilemap/inventory/bar inventori.png" type="Texture" id=28]
+[ext_resource path="res://scene/CanvasLayer.gd" type="Script" id=29]
+[ext_resource path="res://tilemap/button/cheklis.png" type="Texture" id=30]
+
+[sub_resource type="CircleShape2D" id=1]
+custom_solver_bias = 1.0
+radius = 4.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "cluritatas"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 12 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("clurit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 8, 9, 10 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack_animation_finished"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("hitboxpivot:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 270.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("hitboxpivot/clurithitbox/CollisionShape2D2:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "cluritbawah"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 18 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("clurit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 5, 6, 7, 10 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack_animation_finished"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("hitboxpivot:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 90.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("hitboxpivot/clurithitbox/CollisionShape2D2:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "cluritkanan"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("clurit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 1, 2, 3, 10 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack_animation_finished"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("hitboxpivot:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("hitboxpivot/clurithitbox/CollisionShape2D2:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "cluritkiri"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("clurit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 5, 6, 7, 10 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack_animation_finished"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("hitboxpivot:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 180.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("hitboxpivot/clurithitbox/CollisionShape2D2:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 12 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 18 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15, 16, 17, 12 ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 19, 20, 21, 22, 23, 18 ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 0 ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 7, 8, 9, 10, 11, 6 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "cluritkiri"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "cluritbawah"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "cluritkanan"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "cluritatas"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=18]
+blend_point_0/node = SubResource( 14 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 15 )
+blend_point_1/pos = Vector2( 0, 1.1 )
+blend_point_2/node = SubResource( 16 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 17 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "idle_bawah"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "idle_kanan"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "idle_atas"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "idle_kiri"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=23]
+blend_point_0/node = SubResource( 19 )
+blend_point_0/pos = Vector2( 0, 1.1 )
+blend_point_1/node = SubResource( 20 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 21 )
+blend_point_2/pos = Vector2( 0, -1.1 )
+blend_point_3/node = SubResource( 22 )
+blend_point_3/pos = Vector2( -1, 0 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "jalan_bawah"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "jalan_kanan"
+
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "jalan_atas"
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "jalan_kiri"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=28]
+blend_point_0/node = SubResource( 24 )
+blend_point_0/pos = Vector2( 0, 1.1 )
+blend_point_1/node = SubResource( 25 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 26 )
+blend_point_2/pos = Vector2( 0, -1.1 )
+blend_point_3/node = SubResource( 27 )
+blend_point_3/pos = Vector2( -1, 0 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+
+[sub_resource type="AnimationNodeStateMachine" id=33]
+states/Attack/node = SubResource( 18 )
+states/Attack/position = Vector2( 468.777, 228.359 )
+states/idle/node = SubResource( 23 )
+states/idle/position = Vector2( 468.333, 116.333 )
+states/jalan/node = SubResource( 28 )
+states/jalan/position = Vector2( 644.333, 117.667 )
+transitions = [ "idle", "jalan", SubResource( 29 ), "jalan", "idle", SubResource( 30 ), "Attack", "idle", SubResource( 31 ), "idle", "Attack", SubResource( 32 ) ]
+start_node = "idle"
+graph_offset = Vector2( 0, 49.3587 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=34]
+
+[sub_resource type="RectangleShape2D" id=35]
+extents = Vector2( 35, 8 )
+
+[sub_resource type="DynamicFontData" id=36]
+font_path = "res://font/dogica.ttf"
+
+[sub_resource type="DynamicFont" id=37]
+size = 7
+outline_size = 1
+outline_color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+extra_spacing_top = 6
+font_data = SubResource( 36 )
+
+[sub_resource type="CircleShape2D" id=38]
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 16 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=41]
+animations = [ {
+"frames": [ SubResource( 39 ), SubResource( 40 ) ],
+"loop": true,
+"name": "tombolx",
+"speed": 3.0
+} ]
+
+[sub_resource type="DynamicFontData" id=42]
+font_path = "res://font/dogica.ttf"
+
+[sub_resource type="DynamicFont" id=43]
+size = 4
+font_data = SubResource( 42 )
+
+[sub_resource type="CircleShape2D" id=44]
+
+[sub_resource type="CircleShape2D" id=45]
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 16 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=48]
+animations = [ {
+"frames": [ SubResource( 46 ), SubResource( 47 ) ],
+"loop": true,
+"name": "pencet",
+"speed": 3.0
+} ]
+
+[sub_resource type="CircleShape2D" id=49]
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 16 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=52]
+animations = [ {
+"frames": [ SubResource( 50 ), SubResource( 51 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[node name="character" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 17
+script = ExtResource( 2 )
+
+[node name="player" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 5
+frame = 3
+
+[node name="clurit" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+hframes = 3
+vframes = 4
+frame = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 7 )
+rotation = -1.5708
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/cluritatas = SubResource( 2 )
+anims/cluritbawah = SubResource( 3 )
+anims/cluritkanan = SubResource( 4 )
+anims/cluritkiri = SubResource( 5 )
+anims/idle_atas = SubResource( 6 )
+anims/idle_bawah = SubResource( 7 )
+anims/idle_kanan = SubResource( 8 )
+anims/idle_kiri = SubResource( 9 )
+anims/jalan_atas = SubResource( 10 )
+anims/jalan_bawah = SubResource( 11 )
+anims/jalan_kanan = SubResource( 12 )
+anims/jalan_kiri = SubResource( 13 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 33 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 34 )
+parameters/Attack/blend_position = Vector2( 0.00851703, 0.764916 )
+parameters/idle/blend_position = Vector2( 0.365213, -0.00953758 )
+parameters/jalan/blend_position = Vector2( 0.248881, 0.219364 )
+
+[node name="hitboxpivot" type="Position2D" parent="."]
+rotation = 4.71239
+
+[node name="clurithitbox" parent="hitboxpivot" instance=ExtResource( 4 )]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D2" parent="hitboxpivot/clurithitbox" index="0"]
+position = Vector2( 10, 0 )
+rotation = -1.5708
+disabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 29 )
+
+[node name="lihat_misi" type="Sprite" parent="CanvasLayer"]
+
+[node name="tekan" type="TouchScreenButton" parent="CanvasLayer/lihat_misi"]
+shape = SubResource( 35 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/lihat_misi/tekan"]
+margin_right = 72.0
+margin_bottom = 24.0
+custom_fonts/normal_font = SubResource( 37 )
+text = "Lihat Misi"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bar_misi" type="Sprite" parent="CanvasLayer"]
+visible = false
+position = Vector2( 48, 32 )
+texture = ExtResource( 28 )
+
+[node name="tomboltutupmisi" type="TouchScreenButton" parent="CanvasLayer/bar_misi"]
+position = Vector2( 40, 24 )
+scale = Vector2( 0.75, 0.75 )
+shape = SubResource( 38 )
+shape_centered = false
+action = "oke"
+
+[node name="tutup" type="AnimatedSprite" parent="CanvasLayer/bar_misi/tomboltutupmisi"]
+position = Vector2( -2.66666, -2.66667 )
+frames = SubResource( 41 )
+animation = "tombolx"
+frame = 1
+playing = true
+
+[node name="temukan_celurit" type="RichTextLabel" parent="CanvasLayer/bar_misi"]
+visible = false
+margin_left = -30.0
+margin_top = -23.0
+margin_right = 50.0
+margin_bottom = 17.0
+custom_fonts/normal_font = SubResource( 43 )
+text = "temukan alat untuk memotong rumput"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cheklis" type="Sprite" parent="CanvasLayer/bar_misi"]
+visible = false
+position = Vector2( -38, -19 )
+texture = ExtResource( 30 )
+
+[node name="base" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 288, 128 )
+texture = ExtResource( 14 )
+
+[node name="Box_clurite" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+position = Vector2( 288, 64 )
+normal = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/Box_clurite"]
+visible = false
+position = Vector2( 16, 16 )
+texture = ExtResource( 5 )
+
+[node name="seleksiefek" type="Sprite" parent="CanvasLayer/Box_clurite"]
+visible = false
+position = Vector2( 15, 15 )
+texture = ExtResource( 8 )
+
+[node name="box_hand" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2( 288, 32 )
+normal = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/box_hand"]
+position = Vector2( 16, 16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 12 )
+
+[node name="seleksiefek2" type="Sprite" parent="CanvasLayer/box_hand"]
+position = Vector2( 15, 15 )
+texture = ExtResource( 8 )
+
+[node name="setting" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2( 304, 16 )
+shape = SubResource( 44 )
+shape_centered = false
+
+[node name="setting button" type="Sprite" parent="CanvasLayer/setting"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+
+[node name="aksi" parent="CanvasLayer" instance=ExtResource( 10 )]
+position = Vector2( 272, 112 )
+
+[node name="aksi_clurit" parent="CanvasLayer" instance=ExtResource( 13 )]
+visible = false
+position = Vector2( 272, 112 )
+
+[node name="box_kosong" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 288, 64 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="dialog_box" type="Sprite" parent="CanvasLayer"]
+visible = false
+position = Vector2( 160, 120 )
+texture = ExtResource( 15 )
+script = ExtResource( 6 )
+dialogPath = "res://dialog/dialogmisi1.json"
+
+[node name="charactercewe" type="Sprite" parent="CanvasLayer/dialog_box"]
+position = Vector2( -108, -4 )
+scale = Vector2( 0.146583, 0.146583 )
+texture = ExtResource( 20 )
+
+[node name="Name" type="RichTextLabel" parent="CanvasLayer/dialog_box"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="CanvasLayer/dialog_box"]
+margin_left = -88.0
+margin_top = -24.0
+margin_right = 88.0
+margin_bottom = 24.0
+custom_fonts/normal_font = ExtResource( 27 )
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="misipertama" type="RichTextLabel" parent="CanvasLayer/dialog_box"]
+visible = false
+margin_left = -88.0
+margin_top = -24.0
+margin_right = 88.0
+margin_bottom = 24.0
+custom_fonts/normal_font = ExtResource( 27 )
+tab_size = 2
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tombolnext" type="TouchScreenButton" parent="CanvasLayer/dialog_box"]
+position = Vector2( 80, 16 )
+scale = Vector2( 0.75, 0.75 )
+shape = SubResource( 38 )
+shape_centered = false
+action = "oke"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialog_box/tombolnext"]
+frames = SubResource( 41 )
+animation = "tombolx"
+frame = 1
+playing = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer/dialog_box"]
+wait_time = 0.05
+
+[node name="dialog_ganti" type="Sprite" parent="CanvasLayer"]
+visible = false
+position = Vector2( 160, 120 )
+texture = ExtResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/dialog_ganti"]
+position = Vector2( -106.313, -2.89294 )
+scale = Vector2( 0.242302, 0.242302 )
+texture = ExtResource( 21 )
+
+[node name="charactercewe" type="Sprite" parent="CanvasLayer/dialog_ganti"]
+visible = false
+position = Vector2( -108, -4 )
+scale = Vector2( 0.146583, 0.146583 )
+texture = ExtResource( 20 )
+
+[node name="harustangan" type="RichTextLabel" parent="CanvasLayer/dialog_ganti"]
+margin_left = -88.0
+margin_top = -24.0
+margin_right = 88.0
+margin_bottom = 24.0
+custom_fonts/normal_font = ExtResource( 27 )
+tab_size = 2
+scroll_active = false
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tombolx" type="TouchScreenButton" parent="CanvasLayer/dialog_ganti"]
+position = Vector2( 80, 16 )
+scale = Vector2( 0.75, 0.75 )
+shape = SubResource( 45 )
+shape_centered = false
+action = "oke"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialog_ganti/tombolx"]
+frames = SubResource( 48 )
+animation = "pencet"
+frame = 1
+playing = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer/dialog_ganti"]
+wait_time = 0.05
+
+[node name="dialogceluritketemu" type="Sprite" parent="CanvasLayer"]
+visible = false
+position = Vector2( 160, 120 )
+texture = ExtResource( 15 )
+
+[node name="charatercowo" type="Sprite" parent="CanvasLayer/dialogceluritketemu"]
+position = Vector2( -114, -11 )
+scale = Vector2( 0.284615, 0.284615 )
+texture = ExtResource( 18 )
+
+[node name="ketemu" type="RichTextLabel" parent="CanvasLayer/dialogceluritketemu"]
+margin_left = -88.0
+margin_top = -24.0
+margin_right = 88.0
+margin_bottom = 24.0
+custom_fonts/normal_font = ExtResource( 27 )
+tab_size = 2
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="xbutton" type="TouchScreenButton" parent="CanvasLayer/dialogceluritketemu"]
+position = Vector2( 80, 16 )
+scale = Vector2( 0.75, 0.75 )
+shape = SubResource( 49 )
+shape_centered = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialogceluritketemu/xbutton"]
+frames = SubResource( 52 )
+frame = 1
+playing = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer/dialogceluritketemu"]
+wait_time = 0.05
+
+[node name="awalgame" type="Sprite" parent="CanvasLayer"]
+visible = false
+position = Vector2( 160, 120 )
+texture = ExtResource( 15 )
+
+[node name="charatercowo" type="Sprite" parent="CanvasLayer/awalgame"]
+position = Vector2( -114, -11 )
+scale = Vector2( 0.284615, 0.284615 )
+texture = ExtResource( 18 )
+
+[node name="scriptawalgame" type="RichTextLabel" parent="CanvasLayer/awalgame"]
+margin_left = -88.0
+margin_top = -24.0
+margin_right = 88.0
+margin_bottom = 24.0
+custom_fonts/normal_font = ExtResource( 22 )
+tab_size = 2
+scroll_active = false
+script = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tombolx1" type="TouchScreenButton" parent="CanvasLayer/awalgame"]
+position = Vector2( 80, 16 )
+scale = Vector2( 0.75, 0.75 )
+shape = SubResource( 38 )
+shape_centered = false
+action = "oke"
+
+[node name="tutup" type="AnimatedSprite" parent="CanvasLayer/awalgame/tombolx1"]
+frames = SubResource( 41 )
+animation = "tombolx"
+playing = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer/awalgame"]
+wait_time = 0.05
+
+[node name="Joystick" parent="CanvasLayer" instance=ExtResource( 11 )]
+position = Vector2( 32, 128 )
+
+[node name="dialooog" type="Sprite" parent="CanvasLayer"]
+visible = false
+position = Vector2( 160, 120 )
+texture = ExtResource( 15 )
+script = ExtResource( 26 )
+dialogPath = "res://dialog/dialog0.json"
+
+[node name="Name" type="RichTextLabel" parent="CanvasLayer/dialooog"]
+visible = false
+margin_top = 24.0
+margin_right = 32.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="CanvasLayer/dialooog"]
+margin_left = -88.0
+margin_top = -24.0
+margin_right = 88.0
+margin_bottom = 16.0
+input_pass_on_modal_close_click = false
+custom_fonts/normal_font = ExtResource( 27 )
+meta_underlined = false
+text = "saasfaf"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tombolx2" type="TouchScreenButton" parent="CanvasLayer/dialooog"]
+position = Vector2( 80, 16 )
+scale = Vector2( 0.75, 0.75 )
+shape = SubResource( 38 )
+shape_centered = false
+action = "oke"
+
+[node name="tutup" type="AnimatedSprite" parent="CanvasLayer/dialooog/tombolx2"]
+frames = SubResource( 41 )
+animation = "tombolx"
+playing = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer/dialooog"]
+
+[node name="selesaimisi1" type="Sprite" parent="CanvasLayer"]
+visible = false
+position = Vector2( 160, 120 )
+texture = ExtResource( 15 )
+script = ExtResource( 24 )
+dialogPath = "res://dialog/rewardmisi1.json"
+
+[node name="charactercewe" type="Sprite" parent="CanvasLayer/selesaimisi1"]
+position = Vector2( -108, -4 )
+scale = Vector2( 0.146583, 0.146583 )
+texture = ExtResource( 20 )
+
+[node name="Name" type="RichTextLabel" parent="CanvasLayer/selesaimisi1"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="CanvasLayer/selesaimisi1"]
+margin_left = -88.0
+margin_top = -24.0
+margin_right = 88.0
+margin_bottom = 24.0
+custom_fonts/normal_font = ExtResource( 27 )
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tombolnext" type="TouchScreenButton" parent="CanvasLayer/selesaimisi1"]
+position = Vector2( 80, 16 )
+scale = Vector2( 0.75, 0.75 )
+shape = SubResource( 38 )
+shape_centered = false
+action = "oke"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/selesaimisi1/tombolnext"]
+frames = SubResource( 41 )
+animation = "tombolx"
+frame = 1
+playing = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer/selesaimisi1"]
+wait_time = 0.05
+
+[connection signal="released" from="CanvasLayer/lihat_misi/tekan" to="CanvasLayer" method="_on_tekan_released"]
+[connection signal="released" from="CanvasLayer/bar_misi/tomboltutupmisi" to="CanvasLayer" method="_on_tomboltutupmisi_released"]
+[connection signal="pressed" from="CanvasLayer/Box_clurite" to="." method="_on_Box_clurite_pressed"]
+[connection signal="pressed" from="CanvasLayer/box_hand" to="." method="_on_box_hand_pressed"]
+[connection signal="pressed" from="CanvasLayer/setting" to="CanvasLayer" method="_on_setting_pressed"]
+[connection signal="released" from="CanvasLayer/dialog_box/tombolnext" to="CanvasLayer/dialog_box" method="_on_tombolnext_released"]
+[connection signal="timeout" from="CanvasLayer/dialog_box/Timer" to="CanvasLayer/dialog_box/misipertama" method="_on_Timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/dialog_ganti/tombolx" to="." method="_on_tombolx_pressed"]
+[connection signal="timeout" from="CanvasLayer/dialog_ganti/Timer" to="CanvasLayer/dialog_ganti/harustangan" method="_on_Timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/dialogceluritketemu/xbutton" to="." method="_on_xbutton_pressed"]
+[connection signal="timeout" from="CanvasLayer/dialogceluritketemu/Timer" to="CanvasLayer/dialogceluritketemu/ketemu" method="_on_Timer_timeout"]
+[connection signal="released" from="CanvasLayer/awalgame/tombolx1" to="." method="_on_tombolx1_released"]
+[connection signal="timeout" from="CanvasLayer/awalgame/Timer" to="CanvasLayer/awalgame/scriptawalgame" method="_on_Timer_timeout"]
+[connection signal="released" from="CanvasLayer/dialooog/tombolx2" to="CanvasLayer/dialooog" method="_on_tombolx2_released"]
+[connection signal="released" from="CanvasLayer/selesaimisi1/tombolnext" to="CanvasLayer/selesaimisi1" method="_on_tombolnext_released"]
+
+[editable path="hitboxpivot/clurithitbox"]

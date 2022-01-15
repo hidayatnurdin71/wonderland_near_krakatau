@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://joystick_button.gd" type="Script" id=1]
+[ext_resource path="res://joystick/baseTransparent.png" type="Texture" id=2]
+[ext_resource path="res://joystick/center.png" type="Texture" id=3]
+[ext_resource path="res://joystick/atas.png" type="Texture" id=4]
+[ext_resource path="res://joystick/center_press.png" type="Texture" id=5]
+[ext_resource path="res://joystick/kiri.png" type="Texture" id=6]
+[ext_resource path="res://joystick/bawah.png" type="Texture" id=7]
+[ext_resource path="res://joystick/kanan.png" type="Texture" id=8]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 14.0
+
+[node name="joystick" type="Sprite"]
+texture = ExtResource( 2 )
+
+[node name="kanan" type="TouchScreenButton" parent="."]
+position = Vector2( 10, -21 )
+normal = ExtResource( 8 )
+passby_press = true
+action = "ui_right"
+
+[node name="kiri" type="TouchScreenButton" parent="."]
+position = Vector2( -30, -21 )
+normal = ExtResource( 6 )
+passby_press = true
+action = "ui_left"
+
+[node name="atas" type="TouchScreenButton" parent="."]
+position = Vector2( -21, -30 )
+normal = ExtResource( 4 )
+passby_press = true
+action = "ui_up"
+
+[node name="bawah" type="TouchScreenButton" parent="."]
+position = Vector2( -21, 10 )
+normal = ExtResource( 7 )
+passby_press = true
+action = "ui_down"
+
+[node name="joystick_button" type="TouchScreenButton" parent="."]
+normal = ExtResource( 3 )
+pressed = ExtResource( 5 )
+shape = SubResource( 1 )
+visibility_mode = 1
+script = ExtResource( 1 )

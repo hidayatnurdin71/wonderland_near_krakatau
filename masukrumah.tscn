@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://tilemap/button/bibbob.png" type="Texture" id=1]
+[ext_resource path="res://masukrumah.gd" type="Script" id=2]
+[ext_resource path="res://tilemap/button/tanda tanya.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "animasipintuuu",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=5]
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "tndty",
+"speed": 5.0
+} ]
+
+[node name="masukrumah" type="Area2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="masuk" type="Sprite" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="bibbob" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="animasipintu" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
+animation = "animasipintuuu"
+frame = 1
+playing = true
+
+[node name="tanya" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 8, -56 )
+shape = SubResource( 5 )
+shape_centered = false
+action = "help"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="tanya"]
+frames = SubResource( 8 )
+animation = "tndty"
+playing = true
+
+[connection signal="body_entered" from="." to="." method="_on_masukrumah_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_masukrumah_body_exited"]
+[connection signal="pressed" from="tanya" to="." method="_on_TouchScreenButton_pressed"]

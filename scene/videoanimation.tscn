@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://video/openinggame.ogv" type="VideoStream" id=1]
+[ext_resource path="res://scene/VideoPlayer.gd" type="Script" id=2]
+[ext_resource path="res://font/fontdefault.tres" type="DynamicFont" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 45, 10 )
+
+[node name="videoanimation" type="Node2D"]
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_right = 335.0
+margin_bottom = 176.0
+stream = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( 248, 144 )
+shape = SubResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TouchScreenButton"]
+margin_left = 4.0
+margin_top = 1.0
+margin_right = 92.0
+margin_bottom = 25.0
+custom_fonts/normal_font = ExtResource( 3 )
+text = "Skip >>"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="finished" from="VideoPlayer" to="VideoPlayer" method="_on_VideoPlayer_finished"]
+[connection signal="released" from="TouchScreenButton" to="VideoPlayer" method="_on_TouchScreenButton_released"]

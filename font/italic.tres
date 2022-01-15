@@ -1,0 +1,9 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://font/Mario-Kart-DS.ttf"
+
+[resource]
+size = 10
+outline_color = Color( 0.964706, 0.341176, 0.341176, 1 )
+font_data = SubResource( 1 )
