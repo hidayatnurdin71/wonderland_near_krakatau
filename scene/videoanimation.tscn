@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://video/openinggame.ogv" type="VideoStream" id=1]
+[ext_resource path="res://video/videoopening.ogv" type="VideoStream" id=1]
 [ext_resource path="res://scene/VideoPlayer.gd" type="Script" id=2]
 [ext_resource path="res://font/fontdefault.tres" type="DynamicFont" id=3]
 
@@ -10,8 +10,8 @@ extents = Vector2( 45, 10 )
 [node name="videoanimation" type="Node2D"]
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
-margin_right = 335.0
-margin_bottom = 176.0
+margin_right = 320.0
+margin_bottom = 168.0
 stream = ExtResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {

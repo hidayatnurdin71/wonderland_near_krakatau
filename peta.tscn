@@ -922,7 +922,7 @@ position = Vector2( 88, -18 )
 script = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="setelah_sabit_ketemu"]
-position = Vector2( 25, 386 )
+position = Vector2( 33, 402 )
 shape = SubResource( 56 )
 
 [node name="YSort" type="YSort" parent="."]
@@ -1212,6 +1212,7 @@ __meta__ = {
 }
 
 [node name="rewardcoin" type="Sprite" parent="HUD"]
+visible = false
 position = Vector2( 160, 72 )
 scale = Vector2( 4.23333, 4.23333 )
 texture = ExtResource( 36 )
