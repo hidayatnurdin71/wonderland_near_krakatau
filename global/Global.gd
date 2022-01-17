@@ -4,6 +4,7 @@ var door_name = null
 var ceeluritdipake = true
 var celuritkondisi = null
 var coin_collected = false
+var coindikurang = 0
 var coins = 0
 var rumputt = null
 var toolls = null

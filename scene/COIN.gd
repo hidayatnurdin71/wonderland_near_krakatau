@@ -5,7 +5,7 @@ var a = [1,2,3,4,5]
 #onready var rng = RandomNumberGenerator.new()
 
 func _ready():
-	randomize()
+#	randomize()
 	a.shuffle()
 	print (a)
 	var res = a[0]

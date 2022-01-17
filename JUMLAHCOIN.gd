@@ -1,10 +1,12 @@
 extends Label
 
 func _ready():
-	if DataManager.data["Settings"].has(name):
-		var jumlah = DataManager.data["Settings"][name]
+	if DataManager.data["Settings"].has("jumlahkoin"):
+		var jumlah = DataManager.data["Settings"]["jumlahkoin"]
 		Global.coins = jumlah
+	if DataManager.data["Settings"].has("dikurang1"):
+		Global.coins = Global.coins - Global.coindikurang
 func _process(delta):
 	text = String(Global.coins)
-	DataManager.data["Settings"][name]= Global.coins
+	DataManager.data["Settings"]["jumlahkoin"]= Global.coins
 	DataManager.save_data()

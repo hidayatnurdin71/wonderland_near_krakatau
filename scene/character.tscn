@@ -690,7 +690,6 @@ action = "oke"
 position = Vector2( -2.66666, -2.66667 )
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="temukan_celurit" type="RichTextLabel" parent="CanvasLayer/bar_misi"]
@@ -758,6 +757,9 @@ position = Vector2( 272, 112 )
 visible = false
 position = Vector2( 272, 112 )
 
+[node name="Joystick" parent="CanvasLayer" instance=ExtResource( 11 )]
+position = Vector2( 32, 128 )
+
 [node name="box_kosong" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 288, 64 )
 texture = ExtResource( 7 )
@@ -817,7 +819,6 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialog_box/tombolnext"]
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialog_box"]
@@ -862,7 +863,6 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialog_ganti/tombolx"]
 frames = SubResource( 48 )
 animation = "pencet"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialog_ganti"]
@@ -898,7 +898,6 @@ shape_centered = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialogceluritketemu/xbutton"]
 frames = SubResource( 52 )
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialogceluritketemu"]
@@ -937,13 +936,11 @@ action = "oke"
 [node name="tutup" type="AnimatedSprite" parent="CanvasLayer/awalgame/tombolx1"]
 frames = SubResource( 41 )
 animation = "tombolx"
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/awalgame"]
 wait_time = 0.05
-
-[node name="Joystick" parent="CanvasLayer" instance=ExtResource( 11 )]
-position = Vector2( 32, 128 )
 
 [node name="dialooog" type="Sprite" parent="CanvasLayer"]
 visible = false
@@ -985,6 +982,7 @@ action = "oke"
 [node name="tutup" type="AnimatedSprite" parent="CanvasLayer/dialooog/tombolx2"]
 frames = SubResource( 41 )
 animation = "tombolx"
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialooog"]
@@ -1030,7 +1028,6 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/selesaimisi1/tombolnext"]
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/selesaimisi1"]
