@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://tilemap/MENU/menu.png" type="Texture" id=1]
 [ext_resource path="res://tilemap/MENU/exit.png" type="Texture" id=2]
@@ -10,46 +10,70 @@
 [ext_resource path="res://tilemap/card/radenintan2.png" type="Texture" id=8]
 [ext_resource path="res://tilemap/card/radenintan3.png" type="Texture" id=9]
 [ext_resource path="res://tilemap/inventory/bar inventori.png" type="Texture" id=10]
-[ext_resource path="res://font/fontdefault.tres" type="DynamicFont" id=11]
-[ext_resource path="res://tilemap/MENU/BALOK MENU.png" type="Texture" id=12]
+[ext_resource path="res://tilemap/button/circle.png" type="Texture" id=11]
+[ext_resource path="res://tilemap/button/crossred.png" type="Texture" id=12]
+[ext_resource path="res://tilemap/button/checkmarkgreen.png" type="Texture" id=13]
+[ext_resource path="res://tilemap/button/circlebrown.png" type="Texture" id=14]
+[ext_resource path="res://tilemap/button/locked.png" type="Texture" id=15]
+[ext_resource path="res://tilemap/button/unlocked.png" type="Texture" id=16]
+[ext_resource path="res://tilemap/button/checkmark.png" type="Texture" id=17]
+[ext_resource path="res://tilemap/Full Coins.png" type="Texture" id=18]
+[ext_resource path="res://jmlcoin.gd" type="Script" id=19]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 5 )
+[sub_resource type="CircleShape2D" id=1]
 
-[sub_resource type="DynamicFontData" id=2]
+[sub_resource type="CircleShape2D" id=2]
+
+[sub_resource type="DynamicFontData" id=3]
 font_path = "res://font/AGoblinAppears-o2aV.ttf"
 
-[sub_resource type="DynamicFont" id=3]
-size = 4
+[sub_resource type="DynamicFont" id=4]
+size = 6
 outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-extra_spacing_top = 4
-font_data = SubResource( 2 )
+outline_color = Color( 0.0588235, 0.00784314, 0.00784314, 1 )
+extra_spacing_top = 2
+extra_spacing_bottom = 2
+extra_spacing_char = 1
+extra_spacing_space = 1
+font_data = SubResource( 3 )
 
-[sub_resource type="Animation" id=4]
-resource_name = "text"
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://font/dogica.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 8
+outline_size = 1
+outline_color = Color( 0.027451, 0, 0, 1 )
+extra_spacing_top = 2
+extra_spacing_bottom = 2
+font_data = SubResource( 5 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "coin"
+length = 0.8
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:custom_colors/default_color")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0.988235, 1, 0.101961, 1 ), Color( 1, 1, 1, 1 ), Color( 0.988235, 1, 0.101961, 1 ) ]
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 10, 7 )
+[sub_resource type="DynamicFontData" id=8]
+font_path = "res://font/dogica.ttf"
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 20, 7 )
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 80, 10 )
+[sub_resource type="DynamicFont" id=9]
+size = 12
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 1
+font_data = SubResource( 8 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 6 )
@@ -104,27 +128,13 @@ position = Vector2( 63, 71 )
 scale = Vector2( 0.542836, 0.542836 )
 texture = ExtResource( 8 )
 
-[node name="tombol1" type="TouchScreenButton" parent="."]
-position = Vector2( 52, 112 )
-shape = SubResource( 1 )
+[node name="locked" type="Sprite" parent="."]
+position = Vector2( 63, 84 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="tombol1"]
-margin_left = -1.59574
-margin_top = -1.5
-margin_right = 25.4043
-margin_bottom = 18.5
-custom_fonts/normal_font = SubResource( 3 )
-custom_colors/default_color = Color( 0.996313, 1, 0.718585, 1 )
-meta_underlined = false
-tab_size = 2
-text = "unlock"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="tombol1/RichTextLabel"]
-autoplay = "text"
-anims/text = SubResource( 4 )
+[node name="tombol1" type="TouchScreenButton" parent="locked"]
+position = Vector2( -26, -35 )
+normal = ExtResource( 15 )
+pressed = ExtResource( 16 )
 
 [node name="yakin" type="Sprite" parent="."]
 visible = false
@@ -133,62 +143,110 @@ visible = false
 position = Vector2( 159, 73 )
 texture = ExtResource( 10 )
 
-[node name="ya" type="TouchScreenButton" parent="yakin/bar inventori"]
-position = Vector2( -38, 12 )
-shape = SubResource( 5 )
+[node name="yes" type="Sprite" parent="yakin/bar inventori"]
+position = Vector2( -26, 15 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 14 )
 
-[node name="BALOK MENU" type="Sprite" parent="yakin/bar inventori/ya"]
-position = Vector2( 10.125, 7 )
-scale = Vector2( 0.215164, 0.571429 )
-texture = ExtResource( 12 )
+[node name="checkmarkgreen" type="Sprite" parent="yakin/bar inventori/yes"]
+position = Vector2( 0, 1 )
+texture = ExtResource( 13 )
 
-[node name="yaa" type="RichTextLabel" parent="yakin/bar inventori/ya"]
-margin_left = 1.25
-margin_top = -2.0
-margin_right = 23.25
-margin_bottom = 15.0
-custom_fonts/normal_font = ExtResource( 11 )
-text = "ya"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="tidak" type="TouchScreenButton" parent="yakin/bar inventori"]
-position = Vector2( 17, 19 )
-shape = SubResource( 6 )
+[node name="ya" type="TouchScreenButton" parent="yakin/bar inventori/yes"]
+scale = Vector2( 1.65333, 1.65333 )
+shape = SubResource( 1 )
 shape_centered = false
 
-[node name="BALOK MENU" type="Sprite" parent="yakin/bar inventori/tidak"]
-position = Vector2( 0.625, 0 )
-scale = Vector2( 0.387295, 0.571429 )
+[node name="no" type="Sprite" parent="yakin/bar inventori"]
+position = Vector2( 24, 15 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 14 )
+
+[node name="crossred" type="Sprite" parent="yakin/bar inventori/no"]
+scale = Vector2( 0.85, 0.85 )
 texture = ExtResource( 12 )
 
-[node name="tidakk" type="RichTextLabel" parent="yakin/bar inventori/tidak"]
-margin_left = -21.0
-margin_top = -8.0
-margin_right = 36.0
-margin_bottom = 9.0
-custom_fonts/normal_font = ExtResource( 11 )
-text = "tidak"
+[node name="tidak" type="TouchScreenButton" parent="yakin/bar inventori/no"]
+scale = Vector2( 1.65333, 1.65333 )
+shape = SubResource( 2 )
+shape_centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="yakin/bar inventori"]
+margin_left = -45.0
+margin_top = -17.0
+margin_right = 43.0
+margin_bottom = 15.0
+custom_fonts/normal_font = SubResource( 4 )
+text = " Anda yakin?"
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="uangkurang" type="TouchScreenButton" parent="."]
+[node name="uangkurang" type="Sprite" parent="."]
 visible = false
-position = Vector2( 82, 62 )
-shape = SubResource( 7 )
+position = Vector2( 160, 69 )
+texture = ExtResource( 10 )
 
-[node name="uang_kurang" type="RichTextLabel" parent="uangkurang"]
-margin_right = 169.0
-margin_bottom = 29.0
-custom_fonts/normal_font = ExtResource( 11 )
-text = "uang tidak cukup"
+[node name="text" type="RichTextLabel" parent="uangkurang"]
+margin_left = -47.0
+margin_top = -22.0
+margin_right = 55.0
+margin_bottom = 6.0
+custom_fonts/normal_font = SubResource( 6 )
+text = " uang tidak 
+  cukup!!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="uangkurang" type="TouchScreenButton" parent="uangkurang"]
+position = Vector2( -15, 10 )
+normal = ExtResource( 14 )
+pressed = ExtResource( 11 )
+shape_centered = false
+
+[node name="Sprite" type="Sprite" parent="uangkurang/uangkurang"]
+position = Vector2( 15, 17 )
+texture = ExtResource( 17 )
+
+[node name="coin" type="Sprite" parent="."]
+position = Vector2( 144, 151 )
+texture = ExtResource( 18 )
+hframes = 8
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="coin"]
+autoplay = "coin"
+anims/coin = SubResource( 7 )
+
+[node name="Label" type="Label" parent="coin"]
+margin_left = -5.0
+margin_top = -8.0
+margin_right = 25.0
+margin_bottom = 8.0
+rect_pivot_offset = Vector2( -114, 31 )
+custom_fonts/font = SubResource( 9 )
+text = " x"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="jmlcoin" type="Label" parent="coin"]
+margin_left = 19.0
+margin_top = -8.0
+margin_right = 41.0
+margin_bottom = 8.0
+rect_pivot_offset = Vector2( -114, 31 )
+custom_fonts/font = SubResource( 9 )
+text = "aa"
+script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [connection signal="released" from="exit" to="." method="_on_exit_released"]
-[connection signal="pressed" from="tombol1" to="." method="_on_tombol1_pressed"]
-[connection signal="pressed" from="yakin/bar inventori/ya" to="." method="_on_ya_pressed"]
-[connection signal="pressed" from="uangkurang" to="." method="_on_uangkurang_pressed"]
+[connection signal="released" from="locked/tombol1" to="." method="_on_tombol1_released"]
+[connection signal="pressed" from="yakin/bar inventori/yes/ya" to="." method="_on_ya_pressed"]
+[connection signal="pressed" from="yakin/bar inventori/no/tidak" to="." method="_on_tidak_pressed"]
+[connection signal="released" from="uangkurang/uangkurang" to="." method="_on_uangkurang_released"]

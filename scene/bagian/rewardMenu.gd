@@ -1,32 +1,12 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	if DataManager.data["Settings"].has("dikurang1"):
 		$radenintan2.show()
-		$tombol1.queue_free()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+		$locked.queue_free()
 
 func _on_exit_released():
 	get_tree().change_scene("res://scene/bagian/WORLD.tscn")
-
-
-func _on_tombol1_pressed():
-	$yakin.show()
-	
-	$tombol1.hide()
-
 
 func _on_ya_pressed():
 	var harga = 3
@@ -43,9 +23,16 @@ func _on_ya_pressed():
 		DataManager.save_data()
 		$yakin.hide()
 		$radenintan2.show()
+
+func _on_tidak_pressed():
+	$yakin.hide()
+	$locked.show()
+
+func _on_tombol1_released():
+	$yakin.show()
 	
+	$locked.hide()
 
-
-func _on_uangkurang_pressed():
+func _on_uangkurang_released():
 	$uangkurang.hide()
-	$tombol1.show()
+	$locked.show()

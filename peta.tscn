@@ -1018,6 +1018,42 @@ position = Vector2( 176, 360 )
 [node name="Bush16" parent="YSort/pohonpohon" instance=ExtResource( 31 )]
 position = Vector2( 176, 384 )
 
+[node name="Bush26" parent="YSort/pohonpohon" instance=ExtResource( 31 )]
+position = Vector2( 275, 288 )
+
+[node name="Bush27" parent="YSort/pohonpohon" instance=ExtResource( 31 )]
+position = Vector2( 275, 304 )
+
+[node name="Bush28" parent="YSort/pohonpohon" instance=ExtResource( 31 )]
+position = Vector2( 275, 240 )
+
+[node name="Bush29" parent="YSort/pohonpohon" instance=ExtResource( 31 )]
+position = Vector2( 275, 264 )
+
+[node name="Bush30" parent="YSort/pohonpohon" instance=ExtResource( 31 )]
+position = Vector2( 315, 288 )
+
+[node name="Bush31" parent="YSort/pohonpohon" instance=ExtResource( 31 )]
+position = Vector2( 315, 304 )
+
+[node name="Bush32" parent="YSort/pohonpohon" instance=ExtResource( 31 )]
+position = Vector2( 315, 240 )
+
+[node name="Bush33" parent="YSort/pohonpohon" instance=ExtResource( 31 )]
+position = Vector2( 315, 264 )
+
+[node name="Bush34" parent="YSort/pohonpohon" instance=ExtResource( 31 )]
+position = Vector2( 355, 288 )
+
+[node name="Bush35" parent="YSort/pohonpohon" instance=ExtResource( 31 )]
+position = Vector2( 355, 304 )
+
+[node name="Bush36" parent="YSort/pohonpohon" instance=ExtResource( 31 )]
+position = Vector2( 355, 240 )
+
+[node name="Bush37" parent="YSort/pohonpohon" instance=ExtResource( 31 )]
+position = Vector2( 355, 264 )
+
 [node name="pohonkelapa" parent="YSort/pohonpohon" instance=ExtResource( 33 )]
 position = Vector2( -48, 416 )
 

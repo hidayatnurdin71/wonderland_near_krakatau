@@ -690,6 +690,7 @@ action = "oke"
 position = Vector2( -2.66666, -2.66667 )
 frames = SubResource( 41 )
 animation = "tombolx"
+frame = 1
 playing = true
 
 [node name="temukan_celurit" type="RichTextLabel" parent="CanvasLayer/bar_misi"]
@@ -819,6 +820,7 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialog_box/tombolnext"]
 frames = SubResource( 41 )
 animation = "tombolx"
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialog_box"]
@@ -863,6 +865,7 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialog_ganti/tombolx"]
 frames = SubResource( 48 )
 animation = "pencet"
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialog_ganti"]
@@ -898,6 +901,7 @@ shape_centered = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialogceluritketemu/xbutton"]
 frames = SubResource( 52 )
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialogceluritketemu"]
@@ -936,7 +940,6 @@ action = "oke"
 [node name="tutup" type="AnimatedSprite" parent="CanvasLayer/awalgame/tombolx1"]
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/awalgame"]
@@ -982,10 +985,14 @@ action = "oke"
 [node name="tutup" type="AnimatedSprite" parent="CanvasLayer/dialooog/tombolx2"]
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialooog"]
+
+[node name="charatercowo" type="Sprite" parent="CanvasLayer/dialooog"]
+position = Vector2( -124, -11 )
+scale = Vector2( 0.284615, 0.284615 )
+texture = ExtResource( 18 )
 
 [node name="selesaimisi1" type="Sprite" parent="CanvasLayer"]
 visible = false
@@ -1028,6 +1035,7 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/selesaimisi1/tombolnext"]
 frames = SubResource( 41 )
 animation = "tombolx"
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/selesaimisi1"]
