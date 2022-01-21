@@ -3,6 +3,7 @@ extends Node2D
 onready var character = $YSort/character
 
 func _ready():
+#	Autoload.connect("push_door", self,"on_push_door")
 	Autoload.connect("muncul_panduan", self,"on_muncul_panduan")
 	Autoload.connect("misi1selesai", self,"on_misi1selesai")
 	Autoload.connect("reward1", self,"on_reward1")
@@ -19,6 +20,12 @@ func _ready():
 		$YSort/sprite_cewe.queue_free()
 	if DataManager.data["Objects"].has("dapetreward1"):
 		$HUD/rewardcoin.queue_free()
+	
+#func on_push_door():
+#	if Global.map == "dalem_rumah":
+#		$pintu1.hide()
+#	if Global.map == "peta":
+#		$pintu1.show()
 func on_misi1selesai():
 	$YSort/sprite_cewe.hide()
 	DataManager.data["Objects"]["misi1selesai"]= "selesai"

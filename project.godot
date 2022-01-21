@@ -106,6 +106,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_3="playerhurtbox"
 2d_physics/layer_4="environtmenthurtbox"
 2d_physics/layer_5="door"
+2d_physics/layer_6="dialog"
 
 [physics]
 

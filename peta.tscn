@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=108 format=2]
 
 [ext_resource path="res://scene/character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://masukrumah.tscn" type="PackedScene" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://setelah_sabit_ketemu.gd" type="Script" id=41]
 [ext_resource path="res://jumlahreward1.gd" type="Script" id=42]
 [ext_resource path="res://font/font_untuk_reward.tres" type="DynamicFont" id=43]
+[ext_resource path="res://character/character4.png" type="Texture" id=44]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -1291,6 +1292,10 @@ position = Vector2( 1, 0 )
 
 [node name="awalmulaigame" parent="." instance=ExtResource( 37 )]
 position = Vector2( -191, 320 )
+
+[node name="character4" type="Sprite" parent="."]
+position = Vector2( 689, 176 )
+texture = ExtResource( 44 )
 
 [connection signal="body_entered" from="setelah_sabit_ketemu" to="setelah_sabit_ketemu" method="_on_setelah_sabit_ketemu_body_entered"]
 [connection signal="pressed" from="HUD/panduan_penggunaan/tombolnxt" to="HUD/panduan_penggunaan" method="_on_tombolnxt_pressed"]

@@ -11,7 +11,7 @@ func _input(event):
 			print("no scene")
 			return
 		if get_overlapping_bodies().size()>0:
-			
+
 			next_level()
 			
 	Global.jejak = global_position
@@ -37,8 +37,12 @@ func _on_masukrumah_body_entered(body):
 			
 		
 func show_tanya():
+	if Global.map == "dalem_rumah":
+		$tanya.hide()
+	if Global.map == "peta":
+		$tanya.show()
 	tanya = true
-	$tanya.show()
+
 
 func hilang_tanya():
 	tanya = false

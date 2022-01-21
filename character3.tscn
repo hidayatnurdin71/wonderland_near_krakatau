@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scene/bagian/dialogchar3.gd" type="Script" id=1]
+[ext_resource path="res://scene/bagian/character3.gd" type="Script" id=2]
+[ext_resource path="res://tilemap/button/xbutton.png" type="Texture" id=3]
+[ext_resource path="res://tilemap/button/dialogbox.png" type="Texture" id=4]
+[ext_resource path="res://character/character3.png" type="Texture" id=5]
+[ext_resource path="res://tilemap/button/question.png" type="Texture" id=6]
+[ext_resource path="res://font/fontdefault.tres" type="DynamicFont" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 16.0312
+
+[sub_resource type="CircleShape2D" id=3]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "tombolx",
+"speed": 3.0
+} ]
+
+[node name="character3" type="Area2D"]
+position = Vector2( 207, 96 )
+collision_layer = 32
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="character" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="character"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="character/StaticBody2D"]
+position = Vector2( 0, 5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="hud" type="CanvasLayer" parent="."]
+
+[node name="dialogchar3" type="Sprite" parent="hud"]
+pause_mode = 2
+visible = false
+position = Vector2( 160, 120 )
+texture = ExtResource( 4 )
+script = ExtResource( 1 )
+dialogPath = "res://dialog/bapak2.json"
+
+[node name="Text" type="RichTextLabel" parent="hud/dialogchar3"]
+margin_left = -88.0
+margin_top = -24.0
+margin_right = 88.0
+margin_bottom = 24.0
+custom_fonts/normal_font = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="hud/dialogchar3"]
+
+[node name="tombol" type="TouchScreenButton" parent="hud/dialogchar3"]
+position = Vector2( 80, 16 )
+scale = Vector2( 0.75, 0.75 )
+shape = SubResource( 3 )
+shape_centered = false
+action = "oke"
+
+[node name="tutup" type="AnimatedSprite" parent="hud/dialogchar3/tombol"]
+frames = SubResource( 6 )
+animation = "tombolx"
+frame = 1
+playing = true
+
+[node name="tandaanya" type="Sprite" parent="."]
+visible = false
+position = Vector2( -7, -16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[connection signal="body_entered" from="." to="." method="_on_character3_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_character3_body_exited"]
+[connection signal="pressed" from="hud/dialogchar3/tombol" to="hud/dialogchar3" method="_on_tombol_pressed"]

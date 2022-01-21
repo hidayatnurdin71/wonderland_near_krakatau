@@ -5,6 +5,7 @@ var ceeluritdipake = true
 var celuritkondisi = null
 var coin_collected = false
 var coindikurang = 0
+var dialogbpk = true
 var coins = 0
 var rumputt = null
 var toolls = null

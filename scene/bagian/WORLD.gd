@@ -13,6 +13,8 @@ func _ready():
 #		self.add_child(dalem_rumah)
 #	else:
 #		self.add_child(peta)
+	if DataManager.data["Objects"].has("dialogbpk"):
+		Global.dialogbpk = false
 	change_room()
 	Autoload.connect("push_door", self, "on_push_door")
 #	if DataManager.data["Settings"].has(name):

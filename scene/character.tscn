@@ -8,7 +8,7 @@
 [ext_resource path="res://scene/dialog_box.gd" type="Script" id=6]
 [ext_resource path="res://tilemap/inventory/bar inventori2.png" type="Texture" id=7]
 [ext_resource path="res://tilemap/button/efekseleksi.png" type="Texture" id=8]
-[ext_resource path="res://tilemap/inventory/setting button.png" type="Texture" id=9]
+[ext_resource path="res://tilemap/button/star.png" type="Texture" id=9]
 [ext_resource path="res://aksi.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Player/Joystick.tscn" type="PackedScene" id=11]
 [ext_resource path="res://tilemap/button/hand.png" type="Texture" id=12]
@@ -748,7 +748,7 @@ shape = SubResource( 44 )
 shape_centered = false
 
 [node name="setting button" type="Sprite" parent="CanvasLayer/setting"]
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 0, -2 )
 texture = ExtResource( 9 )
 
 [node name="aksi" parent="CanvasLayer" instance=ExtResource( 10 )]
