@@ -60,7 +60,6 @@ visible = false
 position = Vector2( 160, 120 )
 texture = ExtResource( 4 )
 script = ExtResource( 1 )
-dialogPath = "res://dialog/bapak2.json"
 
 [node name="Text" type="RichTextLabel" parent="hud/dialogchar3"]
 margin_left = -88.0

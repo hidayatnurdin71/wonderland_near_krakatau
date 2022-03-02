@@ -1,15 +1,17 @@
 extends Sprite
 
 
-export var dialogPath = ""
+var dialogPath = "user://bapak.json"
 export(float) var textSpeed = 0.05
- 
+var json_data
 var dialog
- 
+var file
+var _file = "bapak.json"
 var phraseNum = 0
 var finished = false
  
 func _ready():
+	load_data()
 	$Timer.wait_time = textSpeed
 	dialog = getDialog()
 	assert(dialog, "Dialog not found")
@@ -22,7 +24,41 @@ func _ready():
 #			nextPhrase()
 #		else:
 #			$Text.visible_characters = len($Text.text)
- 
+#=============================================================================
+func load_data():
+	file = File.new()
+	if not file.file_exists("user://" + _file):
+		save_data(default_data)
+		return default_data
+	else :
+		file.open("user://" + _file,File.READ)
+		json_data = parse_json(_file.get_as_text())
+		if json_data.size() > 0:
+			return json_data
+func save_data(new_data):
+	file = File.new()
+	file.open("user://" + _file,File.WRITE)
+	file.store_line(to_json(new_data))
+	file.close()
+var default_data=[
+	{"Text":"hallo..."},
+	{"Text":"sepertinya kamu Rudi yang di ceritakan susi"},
+	{"Text":"Ada yang bisa ku bantu Rudi?"},
+	{"Text":"......."},
+	{"Text":"kamu ingin mengetahui tentang pulau ini?"},
+	{"Text":"......."},
+	{"Text":"tentu aku bisa memberitahumu..."},
+	{"Text":"tetapi tidak banyak yang kuketahui Rudi.."},
+	{"Text":"apakah kamu sempat melihat gunung di tengah lautan Rudi?"},
+	{"Text":"...."},
+	{"Text":"benar sekali, itu adalah gunung krakatau atau kalau sekarang disebut anak krakatau"},
+	{"Text":"dan tempat ini bernama LAMPUNG Rudi"},
+	{"Text":"daerah yang sangat dekat dengan krakatau"},
+	{"Text":" ..."},
+	{"Text":"jika kamu ingin mengetahui lebih banyak lagi.."},
+	{"Text":"kamu bisa coba pergi ke perpusakaan Rudi"},
+]
+#=============================================================================
 func getDialog() -> Array:
 	var f = File.new()
 	assert(f.file_exists(dialogPath), "File path does not exist")

@@ -1177,12 +1177,12 @@ position = Vector2( 160, 280 )
 script = ExtResource( 17 )
 
 [node name="panduan_penggunaan" type="Sprite" parent="HUD"]
+pause_mode = 2
 visible = false
 position = Vector2( 251, 64 )
 scale = Vector2( 0.708333, 1 )
 texture = ExtResource( 40 )
 script = ExtResource( 39 )
-dialogPath = "res://dialog/panduanAlat.json"
 
 [node name="Text" type="RichTextLabel" parent="HUD/panduan_penggunaan"]
 margin_left = -40.4118

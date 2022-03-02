@@ -33,6 +33,7 @@ func on_misi1selesai():
 func on_reward1():
 	$HUD/rewardcoin.show()
 func on_muncul_panduan():
+	get_tree().paused = true
 	$HUD/panduan_penggunaan.show()
 func _process(delta):
 	DataManager.data["Objects"]["character_luar"]= character.global_position

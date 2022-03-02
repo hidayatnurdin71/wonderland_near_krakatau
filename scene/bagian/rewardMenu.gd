@@ -3,6 +3,7 @@ extends Node2D
 func _ready():
 	if DataManager.data["Settings"].has("dikurang1"):
 		$radenintan2.show()
+		$ke_detail.show()
 		$locked.queue_free()
 
 func _on_exit_released():
@@ -23,6 +24,7 @@ func _on_ya_pressed():
 		DataManager.save_data()
 		$yakin.hide()
 		$radenintan2.show()
+		$ke_detail.show()
 
 func _on_tidak_pressed():
 	$yakin.hide()
@@ -36,3 +38,7 @@ func _on_tombol1_released():
 func _on_uangkurang_released():
 	$uangkurang.hide()
 	$locked.show()
+
+
+func _on_ke_detail_pressed():
+	get_tree().change_scene("res://scene/menuedukasi.tscn")

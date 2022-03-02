@@ -1,14 +1,11 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://tilemap/MENU/menu.png" type="Texture" id=1]
 [ext_resource path="res://tilemap/button/exitRight2.png" type="Texture" id=2]
 [ext_resource path="res://tilemap/button/exitRight.png" type="Texture" id=3]
-[ext_resource path="res://tilemap/card/main_border.png" type="Texture" id=4]
-[ext_resource path="res://tilemap/card/vignette1.png" type="Texture" id=5]
 [ext_resource path="res://scene/bagian/rewardMenu.gd" type="Script" id=6]
 [ext_resource path="res://tilemap/card/raden intan.png" type="Texture" id=7]
-[ext_resource path="res://tilemap/card/radenintan2.png" type="Texture" id=8]
-[ext_resource path="res://tilemap/card/radenintan3.png" type="Texture" id=9]
+[ext_resource path="res://tilemap/card/radenintan5.png" type="Texture" id=8]
 [ext_resource path="res://tilemap/inventory/bar inventori.png" type="Texture" id=10]
 [ext_resource path="res://tilemap/button/circle.png" type="Texture" id=11]
 [ext_resource path="res://tilemap/button/crossred.png" type="Texture" id=12]
@@ -79,6 +76,9 @@ outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = 1
 font_data = SubResource( 8 )
 
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 38, 56 )
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 6 )
 
@@ -112,45 +112,23 @@ scale = Vector2( 0.624704, 0.624704 )
 texture = ExtResource( 20 )
 offset = Vector2( 145.669, 132.863 )
 
-[node name="radenintan3" type="Sprite" parent="."]
-visible = false
-position = Vector2( 64, 72 )
-texture = ExtResource( 9 )
-
-[node name="main_border" type="Sprite" parent="."]
-visible = false
-position = Vector2( 64, 72 )
-scale = Vector2( 0.412179, 0.41218 )
-texture = ExtResource( 4 )
-
-[node name="main_border2" type="Sprite" parent="."]
-visible = false
-position = Vector2( 160, 72 )
-scale = Vector2( 0.412179, 0.41218 )
-texture = ExtResource( 4 )
-
-[node name="main_border3" type="Sprite" parent="."]
-visible = false
-position = Vector2( 256, 72 )
-scale = Vector2( 0.412179, 0.41218 )
-texture = ExtResource( 4 )
-
-[node name="vignette1" type="Sprite" parent="."]
-visible = false
-position = Vector2( 8, 8 )
-rotation = 3.14159
-scale = Vector2( 0.309524, 0.309524 )
-texture = ExtResource( 5 )
-
 [node name="raden intan" type="Sprite" parent="."]
 position = Vector2( 64, 72 )
 scale = Vector2( 0.541667, 0.541667 )
 texture = ExtResource( 7 )
 
+[node name="bingkai2" type="Sprite" parent="."]
+position = Vector2( 160, 72 )
+texture = ExtResource( 22 )
+
+[node name="bingkai3" type="Sprite" parent="."]
+position = Vector2( 256, 72 )
+texture = ExtResource( 22 )
+
 [node name="radenintan2" type="Sprite" parent="."]
 visible = false
-position = Vector2( 63, 71 )
-scale = Vector2( 0.542836, 0.542836 )
+position = Vector2( 64, 72 )
+scale = Vector2( 0.39, 0.39 )
 texture = ExtResource( 8 )
 
 [node name="bingkai" type="Sprite" parent="."]
@@ -286,16 +264,15 @@ position = Vector2( 290, 146 )
 normal = ExtResource( 3 )
 pressed = ExtResource( 2 )
 
-[node name="bingkai2" type="Sprite" parent="."]
-position = Vector2( 160, 72 )
-texture = ExtResource( 22 )
-
-[node name="bingkai3" type="Sprite" parent="."]
-position = Vector2( 256, 72 )
-texture = ExtResource( 22 )
+[node name="ke_detail" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 64, 72 )
+shape = SubResource( 10 )
+shape_centered = false
 
 [connection signal="released" from="locked/tombol1" to="." method="_on_tombol1_released"]
 [connection signal="pressed" from="yakin/bar inventori/yes/ya" to="." method="_on_ya_pressed"]
 [connection signal="pressed" from="yakin/bar inventori/no/tidak" to="." method="_on_tidak_pressed"]
 [connection signal="released" from="uangkurang/uangkurang" to="." method="_on_uangkurang_released"]
 [connection signal="released" from="exit" to="." method="_on_exit_released"]
+[connection signal="pressed" from="ke_detail" to="." method="_on_ke_detail_pressed"]

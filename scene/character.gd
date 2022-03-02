@@ -134,6 +134,7 @@ func _on_box_hand_pressed():
 	on_ganti_tool()# Replace with function body.
 func on_misi1():
 	dialogmisi1 = true
+	get_tree().paused = true
 #	$CanvasLayer/bar_misi.show()
 	$CanvasLayer/bar_misi/temukan_celurit.show()
 	$CanvasLayer/dialog_box.show()
@@ -141,7 +142,9 @@ func on_misi1():
 	dialog_timer.start()
 func on_dialooog():
 	dialooog =true
+	get_tree().paused = true
 	$CanvasLayer/dialooog.show()
+	
 #func on_awalgame():
 #	awalgame = true
 #	$CanvasLayer/awalgame.show()
@@ -178,6 +181,7 @@ func _on_COIN_coin_collected():
 	_ready()
 
 func on_misi1selesai():
+	get_tree().paused = true
 	$CanvasLayer/selesaimisi1.show()
 func _on_tombolx1_released():
 	awalgame = false

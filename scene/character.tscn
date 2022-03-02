@@ -690,7 +690,6 @@ action = "oke"
 position = Vector2( -2.66666, -2.66667 )
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="temukan_celurit" type="RichTextLabel" parent="CanvasLayer/bar_misi"]
@@ -759,7 +758,8 @@ visible = false
 position = Vector2( 272, 112 )
 
 [node name="Joystick" parent="CanvasLayer" instance=ExtResource( 11 )]
-position = Vector2( 32, 128 )
+position = Vector2( 48, 112 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="box_kosong" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 288, 64 )
@@ -767,11 +767,11 @@ texture = ExtResource( 7 )
 centered = false
 
 [node name="dialog_box" type="Sprite" parent="CanvasLayer"]
+pause_mode = 2
 visible = false
 position = Vector2( 160, 120 )
 texture = ExtResource( 15 )
 script = ExtResource( 6 )
-dialogPath = "res://dialog/dialogmisi1.json"
 
 [node name="charactercewe" type="Sprite" parent="CanvasLayer/dialog_box"]
 position = Vector2( -108, -4 )
@@ -820,7 +820,6 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialog_box/tombolnext"]
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialog_box"]
@@ -865,7 +864,6 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialog_ganti/tombolx"]
 frames = SubResource( 48 )
 animation = "pencet"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialog_ganti"]
@@ -901,7 +899,6 @@ shape_centered = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialogceluritketemu/xbutton"]
 frames = SubResource( 52 )
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialogceluritketemu"]
@@ -940,17 +937,18 @@ action = "oke"
 [node name="tutup" type="AnimatedSprite" parent="CanvasLayer/awalgame/tombolx1"]
 frames = SubResource( 41 )
 animation = "tombolx"
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/awalgame"]
 wait_time = 0.05
 
 [node name="dialooog" type="Sprite" parent="CanvasLayer"]
+pause_mode = 2
 visible = false
 position = Vector2( 160, 120 )
 texture = ExtResource( 15 )
 script = ExtResource( 26 )
-dialogPath = "res://dialog/dialog0.json"
 
 [node name="Name" type="RichTextLabel" parent="CanvasLayer/dialooog"]
 visible = false
@@ -969,7 +967,6 @@ margin_bottom = 16.0
 input_pass_on_modal_close_click = false
 custom_fonts/normal_font = ExtResource( 27 )
 meta_underlined = false
-text = "saasfaf"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -985,6 +982,7 @@ action = "oke"
 [node name="tutup" type="AnimatedSprite" parent="CanvasLayer/dialooog/tombolx2"]
 frames = SubResource( 41 )
 animation = "tombolx"
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialooog"]
@@ -995,11 +993,11 @@ scale = Vector2( 0.284615, 0.284615 )
 texture = ExtResource( 18 )
 
 [node name="selesaimisi1" type="Sprite" parent="CanvasLayer"]
+pause_mode = 2
 visible = false
 position = Vector2( 160, 120 )
 texture = ExtResource( 15 )
 script = ExtResource( 24 )
-dialogPath = "res://dialog/rewardmisi1.json"
 
 [node name="charactercewe" type="Sprite" parent="CanvasLayer/selesaimisi1"]
 position = Vector2( -108, -4 )
@@ -1035,7 +1033,6 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/selesaimisi1/tombolnext"]
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/selesaimisi1"]

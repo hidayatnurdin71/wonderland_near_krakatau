@@ -24,6 +24,7 @@ func _on_tomboltutupmisi_released():
 
 func _on_tekan_released():
 	$bar_misi.show()
+	
 
 
 func _on_setting_pressed():
