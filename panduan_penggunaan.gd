@@ -5,6 +5,7 @@ var file
 var json_data
 var _file = "panduanAlat.json"
 var dialogPath = "user://panduanAlat.json"
+#var dialogPath = "res://dialog/panduanAlat.json"
 func _on_COIN_coin_collected():
 	coins = coins + 1
 #	var JUMLAHCOIN ="coin :"+ String(coins)

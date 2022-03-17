@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tilemap/house1.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 73.7042, 76.5391 )
+
+[node name="house1" type="StaticBody2D"]
+position = Vector2( 712, 88 )
+scale = Vector2( 0.352761, 0.352761 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 72.0 ],
+"_edit_vertical_guides_": [ 584.0 ]
+}
+
+[node name="house1" type="Sprite" parent="."]
+position = Vector2( -0.00012207, -68.0347 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -11.3391, -39.6869 )
+shape = SubResource( 1 )

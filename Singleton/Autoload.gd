@@ -11,3 +11,5 @@ signal ganti_tangan
 signal coin_collected
 signal misi1selesai
 signal reward1
+signal pushdoor2
+signal pushdoor3

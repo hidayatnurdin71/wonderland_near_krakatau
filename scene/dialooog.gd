@@ -2,6 +2,7 @@ extends Sprite
 #var dialogPath = "user://dialog0.json"
 
 var dialogPath = "user://dialogmulai.json"
+#var dialogPath = "res://dialog/dialogmulai.json"
 export(float) var textSpeed = 0.05
 var json_data
 var dialog
@@ -44,16 +45,20 @@ func _ready():
 func load_data():
 	file = File.new()
 	if not file.file_exists("user://" + _file):
+#	if not file.file_exists("res://dialog/" + _file):
 		save_data(default_data)
 		return default_data
 	else :
 		file.open("user://" + _file,File.READ)
+
+#		file.open("res://dialog/" + _file,File.READ)
 		json_data = parse_json(_file.get_as_text())
 		if json_data.size() > 0:
 			return json_data
 func save_data(new_data):
 	file = File.new()
 	file.open("user://" + _file,File.WRITE)
+#	file.open("res://dialog/" + _file,File.WRITE)
 	file.store_line(to_json(new_data))
 	file.close()
 
