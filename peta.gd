@@ -38,3 +38,7 @@ func on_muncul_panduan():
 func _process(delta):
 	DataManager.data["Objects"]["character_luar"]= character.global_position
 	DataManager.save_data()
+
+
+func _on_area_body_entered(body):
+	pass # Replace with function body.

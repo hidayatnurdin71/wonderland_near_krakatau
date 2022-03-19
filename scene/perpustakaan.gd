@@ -5,7 +5,8 @@ onready var character = $YSort/character
 func _ready():
 	if DataManager.data["Objects"].has("character_perpus"):
 		character.global_position = DataManager.data["Objects"]["character_perpus"]
-		
+	if DataManager.data["Objects"].has("buku"):
+		$book_01.queue_free()
 #	print(Global.door_name)
 #	print(Global.ceeluritdipake)
 #	print(Global.celuritkondisi)

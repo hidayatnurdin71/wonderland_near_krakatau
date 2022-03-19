@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://3.png" type="Texture" id=1]
 [ext_resource path="res://scene/character.gd" type="Script" id=2]
@@ -8,7 +8,7 @@
 [ext_resource path="res://scene/dialog_box.gd" type="Script" id=6]
 [ext_resource path="res://tilemap/inventory/bar inventori2.png" type="Texture" id=7]
 [ext_resource path="res://tilemap/button/efekseleksi.png" type="Texture" id=8]
-[ext_resource path="res://tilemap/button/star.png" type="Texture" id=9]
+[ext_resource path="res://tilemap/interior/book.png" type="Texture" id=9]
 [ext_resource path="res://aksi.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Player/Joystick.tscn" type="PackedScene" id=11]
 [ext_resource path="res://tilemap/button/hand.png" type="Texture" id=12]
@@ -30,6 +30,8 @@
 [ext_resource path="res://tilemap/inventory/bar inventori.png" type="Texture" id=28]
 [ext_resource path="res://scene/CanvasLayer.gd" type="Script" id=29]
 [ext_resource path="res://tilemap/button/cheklis.png" type="Texture" id=30]
+[ext_resource path="res://scene/raden_intan.gd" type="Script" id=31]
+[ext_resource path="res://tilemap/radenintan aksara.png" type="Texture" id=32]
 
 [sub_resource type="CircleShape2D" id=1]
 custom_solver_bias = 1.0
@@ -562,6 +564,7 @@ size = 4
 font_data = SubResource( 42 )
 
 [sub_resource type="CircleShape2D" id=44]
+radius = 15.5
 
 [sub_resource type="CircleShape2D" id=45]
 
@@ -690,6 +693,7 @@ action = "oke"
 position = Vector2( -2.66666, -2.66667 )
 frames = SubResource( 41 )
 animation = "tombolx"
+frame = 1
 playing = true
 
 [node name="temukan_celurit" type="RichTextLabel" parent="CanvasLayer/bar_misi"]
@@ -741,13 +745,12 @@ texture = ExtResource( 12 )
 position = Vector2( 15, 15 )
 texture = ExtResource( 8 )
 
-[node name="setting" type="TouchScreenButton" parent="CanvasLayer"]
+[node name="buku_pengetahuan" type="TouchScreenButton" parent="CanvasLayer"]
 position = Vector2( 304, 16 )
 shape = SubResource( 44 )
 shape_centered = false
 
-[node name="setting button" type="Sprite" parent="CanvasLayer/setting"]
-position = Vector2( 0, -2 )
+[node name="setting button" type="Sprite" parent="CanvasLayer/buku_pengetahuan"]
 texture = ExtResource( 9 )
 
 [node name="aksi" parent="CanvasLayer" instance=ExtResource( 10 )]
@@ -820,6 +823,7 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialog_box/tombolnext"]
 frames = SubResource( 41 )
 animation = "tombolx"
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialog_box"]
@@ -864,6 +868,7 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialog_ganti/tombolx"]
 frames = SubResource( 48 )
 animation = "pencet"
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialog_ganti"]
@@ -899,6 +904,7 @@ shape_centered = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialogceluritketemu/xbutton"]
 frames = SubResource( 52 )
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialogceluritketemu"]
@@ -937,7 +943,6 @@ action = "oke"
 [node name="tutup" type="AnimatedSprite" parent="CanvasLayer/awalgame/tombolx1"]
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/awalgame"]
@@ -982,12 +987,65 @@ action = "oke"
 [node name="tutup" type="AnimatedSprite" parent="CanvasLayer/dialooog/tombolx2"]
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialooog"]
 
 [node name="charatercowo" type="Sprite" parent="CanvasLayer/dialooog"]
+position = Vector2( -124, -11 )
+scale = Vector2( 0.284615, 0.284615 )
+texture = ExtResource( 18 )
+
+[node name="raden_intan" type="Sprite" parent="CanvasLayer"]
+pause_mode = 2
+visible = false
+position = Vector2( 160, 120 )
+texture = ExtResource( 15 )
+script = ExtResource( 31 )
+
+[node name="Name" type="RichTextLabel" parent="CanvasLayer/raden_intan"]
+visible = false
+margin_top = 24.0
+margin_right = 32.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tekslampung" type="Sprite" parent="CanvasLayer/raden_intan"]
+position = Vector2( -32, -16 )
+scale = Vector2( 0.390411, 0.390411 )
+texture = ExtResource( 32 )
+
+[node name="Text" type="RichTextLabel" parent="CanvasLayer/raden_intan"]
+margin_left = -88.0
+margin_top = -24.0
+margin_right = 88.0
+margin_bottom = 16.0
+input_pass_on_modal_close_click = false
+custom_fonts/normal_font = ExtResource( 27 )
+meta_underlined = false
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tombolx2" type="TouchScreenButton" parent="CanvasLayer/raden_intan"]
+position = Vector2( 80, 16 )
+scale = Vector2( 0.75, 0.75 )
+shape = SubResource( 38 )
+shape_centered = false
+action = "oke"
+
+[node name="tutup" type="AnimatedSprite" parent="CanvasLayer/raden_intan/tombolx2"]
+frames = SubResource( 41 )
+animation = "tombolx"
+frame = 1
+playing = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer/raden_intan"]
+
+[node name="charatercowo" type="Sprite" parent="CanvasLayer/raden_intan"]
 position = Vector2( -124, -11 )
 scale = Vector2( 0.284615, 0.284615 )
 texture = ExtResource( 18 )
@@ -1033,6 +1091,7 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/selesaimisi1/tombolnext"]
 frames = SubResource( 41 )
 animation = "tombolx"
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/selesaimisi1"]
@@ -1042,7 +1101,7 @@ wait_time = 0.05
 [connection signal="released" from="CanvasLayer/bar_misi/tomboltutupmisi" to="CanvasLayer" method="_on_tomboltutupmisi_released"]
 [connection signal="pressed" from="CanvasLayer/Box_clurite" to="." method="_on_Box_clurite_pressed"]
 [connection signal="pressed" from="CanvasLayer/box_hand" to="." method="_on_box_hand_pressed"]
-[connection signal="pressed" from="CanvasLayer/setting" to="CanvasLayer" method="_on_setting_pressed"]
+[connection signal="pressed" from="CanvasLayer/buku_pengetahuan" to="CanvasLayer" method="_on_setting_pressed"]
 [connection signal="released" from="CanvasLayer/dialog_box/tombolnext" to="CanvasLayer/dialog_box" method="_on_tombolnext_released"]
 [connection signal="timeout" from="CanvasLayer/dialog_box/Timer" to="CanvasLayer/dialog_box/misipertama" method="_on_Timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/dialog_ganti/tombolx" to="." method="_on_tombolx_pressed"]
@@ -1052,6 +1111,7 @@ wait_time = 0.05
 [connection signal="released" from="CanvasLayer/awalgame/tombolx1" to="." method="_on_tombolx1_released"]
 [connection signal="timeout" from="CanvasLayer/awalgame/Timer" to="CanvasLayer/awalgame/scriptawalgame" method="_on_Timer_timeout"]
 [connection signal="released" from="CanvasLayer/dialooog/tombolx2" to="CanvasLayer/dialooog" method="_on_tombolx2_released"]
+[connection signal="released" from="CanvasLayer/raden_intan/tombolx2" to="CanvasLayer/raden_intan" method="_on_tombolx2_released"]
 [connection signal="released" from="CanvasLayer/selesaimisi1/tombolnext" to="CanvasLayer/selesaimisi1" method="_on_tombolnext_released"]
 
 [editable path="hitboxpivot/clurithitbox"]

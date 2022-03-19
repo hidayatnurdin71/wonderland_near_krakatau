@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://tilemap/interior.png" type="Texture" id=1]
 [ext_resource path="res://Camera2D.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://masukrumah2.gd" type="Script" id=14]
 [ext_resource path="res://tilemap/interior/peti.tscn" type="PackedScene" id=15]
 [ext_resource path="res://tilemap/interior/lemaribuku.tscn" type="PackedScene" id=16]
+[ext_resource path="res://tilemap/button/book_01.tscn" type="PackedScene" id=17]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 12 )
@@ -106,3 +107,5 @@ position = Vector2( 232, 176 )
 
 [node name="lemaribuku8" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 200, 176 )
+
+[node name="book_01" parent="." instance=ExtResource( 17 )]

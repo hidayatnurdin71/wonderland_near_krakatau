@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=2]
+[gd_scene load_steps=122 format=2]
 
 [ext_resource path="res://scene/character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://masukrumah.tscn" type="PackedScene" id=2]
@@ -56,6 +56,8 @@
 [ext_resource path="res://tilemap/rumputttt.png" type="Texture" id=54]
 [ext_resource path="res://masukrumah2.gd" type="Script" id=55]
 [ext_resource path="res://masukrumah3.gd" type="Script" id=56]
+[ext_resource path="res://areapapan.gd" type="Script" id=57]
+[ext_resource path="res://areapapan.tscn" type="PackedScene" id=58]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -1339,6 +1341,10 @@ texture = ExtResource( 49 )
 [node name="House" parent="YSort" instance=ExtResource( 50 )]
 position = Vector2( 726, 360 )
 
+[node name="areapapan" parent="YSort" instance=ExtResource( 58 )]
+position = Vector2( 543, 126 )
+script = ExtResource( 57 )
+
 [node name="papankayu" type="Sprite" parent="YSort"]
 position = Vector2( 543, 116 )
 scale = Vector2( 0.5, 0.5 )
@@ -1475,6 +1481,8 @@ position = Vector2( 409, 176 )
 texture = ExtResource( 44 )
 
 [connection signal="body_entered" from="setelah_sabit_ketemu" to="setelah_sabit_ketemu" method="_on_setelah_sabit_ketemu_body_entered"]
+[connection signal="body_entered" from="YSort/areapapan" to="YSort/areapapan" method="_on_areapapan_body_entered"]
+[connection signal="body_exited" from="YSort/areapapan" to="YSort/areapapan" method="_on_areapapan_body_exited"]
 [connection signal="pressed" from="HUD/panduan_penggunaan/tombolnxt" to="HUD/panduan_penggunaan" method="_on_tombolnxt_pressed"]
 [connection signal="pressed" from="HUD/rewardcoin/sentuh" to="HUD" method="_on_sentuh_pressed"]
 [connection signal="coin_collected" from="COIN" to="YSort/character" method="_on_COIN_coin_collected"]

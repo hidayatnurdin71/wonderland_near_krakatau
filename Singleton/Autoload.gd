@@ -13,3 +13,6 @@ signal misi1selesai
 signal reward1
 signal pushdoor2
 signal pushdoor3
+signal raden_intan2
+signal hiden
+signal gariskuning

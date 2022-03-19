@@ -30,6 +30,7 @@ var tangan = false
 var dialogmisi1 = false
 var awalgame = false
 var dialooog = false
+var raden_intan2 = false
 var dialoggantitgn = false
 
 func _ready():
@@ -46,9 +47,10 @@ func _ready():
 	Autoload.connect("dialooog", self,"on_dialooog")
 	Autoload.connect("misi1", self,"on_misi1")
 	Autoload.connect("misi1selesai",self,"on_misi1selesai")
-	
+	Autoload.connect("raden_intan2",self,"on_raden_intan2")
 	Autoload.connect("ganti_tangan", self,"on_ganti_tangan")
 	Autoload.connect("ketemu",self,"on_ketemu")
+#	Autoload.connect("hiden",self,"on_hiden")
 	animationTree.active = true
 
 func _process(delta):
@@ -188,3 +190,19 @@ func _on_tombolx1_released():
 	DataManager.data["Objects"]["awalgamesudah"]=["sudah"]
 	DataManager.save_data()
 	$CanvasLayer/awalgame.hide()
+func on_raden_intan2():
+#	tampak = show()
+#	raden_intan2 = true
+	get_tree().paused = true
+#	if i == "hide":
+	if Global.dialogradenintan == true:
+		$CanvasLayer/raden_intan.show()
+	if Global.dialogradenintan == false:
+		$CanvasLayer/raden_intan.hide()
+#	if i == "show":
+#		$CanvasLayer/raden_intan.hide()
+#		i == "hide"
+#var tampak = null
+#var i = "hide"
+#func on_hiden():
+#	i = "show"
