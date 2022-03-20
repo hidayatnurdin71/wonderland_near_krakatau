@@ -74,19 +74,20 @@ script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 160, 80 )
+scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 8 )
-frame = 5
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 160, 80 )
-scale = Vector2( 0.400826, 0.400826 )
+scale = Vector2( 0.330578, 0.330579 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/muncul_dan_hilang = SubResource( 9 )
 
 [node name="Sprite2" type="Sprite" parent="."]
+visible = false
 position = Vector2( 160, 80 )
 texture = ExtResource( 5 )
 

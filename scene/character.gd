@@ -17,6 +17,7 @@ onready var dialog_timer0 = $CanvasLayer/awalgame/Timer
 onready var dialog_timer = $CanvasLayer/dialog_box/Timer
 onready var dialog_timer2 = $CanvasLayer/dialog_ganti/Timer
 onready var dialog_timer3 = $CanvasLayer/dialogceluritketemu/Timer
+onready var dialog_timer4 = $CanvasLayer/raden_intan3/Timer
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
@@ -41,7 +42,9 @@ func _ready():
 	if DataManager.data["Objects"].has("Celurite"):
 		$CanvasLayer/bar_misi/temukan_celurit.hide()
 		on_pick_tool()
-		
+	if DataManager.data["Objects"].has("aksara1"):
+		$CanvasLayer/raden_intan.queue_free()
+		Autoload.emit_signal("sudah_dapat_kamus")
 	Autoload.connect("pick_tool", self, "_on_Box_clurite_pressed")
 	Autoload.connect("ganti_tool", self, "on_ganti_tool")
 	Autoload.connect("dialooog", self,"on_dialooog")
@@ -50,6 +53,9 @@ func _ready():
 	Autoload.connect("raden_intan2",self,"on_raden_intan2")
 	Autoload.connect("ganti_tangan", self,"on_ganti_tangan")
 	Autoload.connect("ketemu",self,"on_ketemu")
+	Autoload.connect("buku_diambil",self,"on_buku_diambil")
+	Autoload.connect("di_oke",self,"on_di_oke")
+	Autoload.connect("raden_intan3",self,"on_raden_intan3")
 #	Autoload.connect("hiden",self,"on_hiden")
 	animationTree.active = true
 
@@ -206,3 +212,30 @@ func on_raden_intan2():
 #var i = "hide"
 #func on_hiden():
 #	i = "show"
+
+func on_buku_diambil():
+	$CanvasLayer/box_hand.hide()
+	$CanvasLayer/aksi.hide()
+	$CanvasLayer/Joystick.hide()
+	$CanvasLayer/base.hide()
+	$CanvasLayer/box_kosong.hide()
+	$CanvasLayer/buku_pengetahuan.hide()
+func on_di_oke():
+	$CanvasLayer/box_hand.show()
+	$CanvasLayer/aksi.show()
+	$CanvasLayer/Joystick.show()
+	$CanvasLayer/base.show()
+	$CanvasLayer/box_kosong.show()
+	$CanvasLayer/buku_pengetahuan.show()
+func on_raden_intan3():
+	get_tree().paused = true
+#	if i == "hide":
+#	if Global.dialogradenintan2 == true:
+	$CanvasLayer/raden_intan3.show()
+	dialog_timer3.start()
+#	if Global.dialogradenintan2 == false:
+#		$CanvasLayer/raden_intan3.hide()
+
+
+func _on_xbutton_released():
+	$CanvasLayer/raden_intan3.hide()

@@ -14,4 +14,6 @@ var jejak = null
 var panduan = "belum_ketemu"
 var reward = 0
 var dialogradenintan = true
+var dialogradenintan2 = true
 var badan = false
+var munculterjemahan = false

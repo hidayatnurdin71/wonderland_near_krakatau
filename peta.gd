@@ -20,6 +20,7 @@ func _ready():
 		$YSort/sprite_cewe.queue_free()
 	if DataManager.data["Objects"].has("dapetreward1"):
 		$HUD/rewardcoin.queue_free()
+	Autoload.connect("sudah_dapat_kamus",self,"on_sudah_dapat_kamus")
 	
 #func on_push_door():
 #	if Global.map == "dalem_rumah":
@@ -39,6 +40,7 @@ func _process(delta):
 	DataManager.data["Objects"]["character_luar"]= character.global_position
 	DataManager.save_data()
 
-
+func on_sudah_dapat_kamus():
+	pass
 func _on_area_body_entered(body):
 	pass # Replace with function body.

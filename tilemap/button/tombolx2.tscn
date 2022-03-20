@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://tilemap/button/xbutton.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "tombolx",
+"speed": 3.0
+} ]
+
+[node name="tombolx2" type="TouchScreenButton"]
+position = Vector2( 80, 16 )
+scale = Vector2( 0.75, 0.75 )
+shape = SubResource( 1 )
+shape_centered = false
+action = "oke"
+
+[node name="tutup" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
+animation = "tombolx"
+playing = true

@@ -14,5 +14,10 @@ signal reward1
 signal pushdoor2
 signal pushdoor3
 signal raden_intan2
+signal raden_intan3
 signal hiden
+signal hiden2
 signal gariskuning
+signal buku_diambil
+signal di_oke
+signal sudah_dapat_kamus

@@ -7,6 +7,7 @@ func _ready():
 		character.global_position = DataManager.data["Objects"]["character_perpus"]
 	if DataManager.data["Objects"].has("buku"):
 		$book_01.queue_free()
+	Autoload.connect("buku_diambil",self,"on_buku_diambil")
 #	print(Global.door_name)
 #	print(Global.ceeluritdipake)
 #	print(Global.celuritkondisi)
@@ -16,8 +17,18 @@ func _ready():
 #				$YSort/character.global_position = door_node.global_position
 				
 	
-	pass
-
+func on_buku_diambil():
+	
+	$CanvasLayer/ColorRect.show()
+	$CanvasLayer/animation_book.show()
+	$CanvasLayer/tombolx2.show()
+	$CanvasLayer/oke.show()
+	$book_01.queue_free()
 func _process(delta):
 	DataManager.data["Objects"]["character_perpus"] = character.global_position
 	DataManager.save_data()
+
+
+func _on_tombolx2_released():
+	$CanvasLayer.queue_free()
+	Autoload.emit_signal("di_oke")

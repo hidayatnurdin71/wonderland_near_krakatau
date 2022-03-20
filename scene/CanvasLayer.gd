@@ -29,3 +29,7 @@ func _on_tekan_released():
 
 func _on_setting_pressed():
 	get_tree().change_scene("res://rewardMenu.tscn")
+
+
+func _on_tombolx2_released():
+	$raden_intan3.hide()

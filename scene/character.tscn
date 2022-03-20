@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://3.png" type="Texture" id=1]
 [ext_resource path="res://scene/character.gd" type="Script" id=2]
@@ -32,6 +32,8 @@
 [ext_resource path="res://tilemap/button/cheklis.png" type="Texture" id=30]
 [ext_resource path="res://scene/raden_intan.gd" type="Script" id=31]
 [ext_resource path="res://tilemap/radenintan aksara.png" type="Texture" id=32]
+[ext_resource path="res://tilemap/button/tombolx2.tscn" type="PackedScene" id=33]
+[ext_resource path="res://scene/radenintan3.gd" type="Script" id=34]
 
 [sub_resource type="CircleShape2D" id=1]
 custom_solver_bias = 1.0
@@ -236,7 +238,6 @@ tracks/4/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-resource_name = "cluritkiri"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("player:frame")
@@ -693,7 +694,6 @@ action = "oke"
 position = Vector2( -2.66666, -2.66667 )
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="temukan_celurit" type="RichTextLabel" parent="CanvasLayer/bar_misi"]
@@ -823,7 +823,6 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialog_box/tombolnext"]
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialog_box"]
@@ -868,7 +867,6 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialog_ganti/tombolx"]
 frames = SubResource( 48 )
 animation = "pencet"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialog_ganti"]
@@ -904,7 +902,6 @@ shape_centered = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialogceluritketemu/xbutton"]
 frames = SubResource( 52 )
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialogceluritketemu"]
@@ -943,6 +940,7 @@ action = "oke"
 [node name="tutup" type="AnimatedSprite" parent="CanvasLayer/awalgame/tombolx1"]
 frames = SubResource( 41 )
 animation = "tombolx"
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/awalgame"]
@@ -977,17 +975,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tombolx2" type="TouchScreenButton" parent="CanvasLayer/dialooog"]
-position = Vector2( 80, 16 )
-scale = Vector2( 0.75, 0.75 )
-shape = SubResource( 38 )
-shape_centered = false
-action = "oke"
-
-[node name="tutup" type="AnimatedSprite" parent="CanvasLayer/dialooog/tombolx2"]
-frames = SubResource( 41 )
-animation = "tombolx"
-playing = true
+[node name="tombolx2" parent="CanvasLayer/dialooog" instance=ExtResource( 33 )]
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialooog"]
 
@@ -1040,7 +1028,6 @@ action = "oke"
 [node name="tutup" type="AnimatedSprite" parent="CanvasLayer/raden_intan/tombolx2"]
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/raden_intan"]
@@ -1049,6 +1036,43 @@ playing = true
 position = Vector2( -124, -11 )
 scale = Vector2( 0.284615, 0.284615 )
 texture = ExtResource( 18 )
+
+[node name="raden_intan3" type="Sprite" parent="CanvasLayer"]
+pause_mode = 2
+visible = false
+position = Vector2( 160, 120 )
+texture = ExtResource( 15 )
+
+[node name="charatercowo" type="Sprite" parent="CanvasLayer/raden_intan3"]
+position = Vector2( -114, -11 )
+scale = Vector2( 0.284615, 0.284615 )
+texture = ExtResource( 18 )
+
+[node name="ketemu" type="RichTextLabel" parent="CanvasLayer/raden_intan3"]
+margin_left = -88.0
+margin_top = -24.0
+margin_right = 88.0
+margin_bottom = 24.0
+custom_fonts/normal_font = ExtResource( 27 )
+tab_size = 2
+script = ExtResource( 34 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="xbutton" type="TouchScreenButton" parent="CanvasLayer/raden_intan3"]
+position = Vector2( 80, 16 )
+scale = Vector2( 0.75, 0.75 )
+shape = SubResource( 49 )
+shape_centered = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/raden_intan3/xbutton"]
+frames = SubResource( 52 )
+frame = 1
+playing = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer/raden_intan3"]
+wait_time = 0.05
 
 [node name="selesaimisi1" type="Sprite" parent="CanvasLayer"]
 pause_mode = 2
@@ -1091,7 +1115,6 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/selesaimisi1/tombolnext"]
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/selesaimisi1"]
@@ -1112,6 +1135,8 @@ wait_time = 0.05
 [connection signal="timeout" from="CanvasLayer/awalgame/Timer" to="CanvasLayer/awalgame/scriptawalgame" method="_on_Timer_timeout"]
 [connection signal="released" from="CanvasLayer/dialooog/tombolx2" to="CanvasLayer/dialooog" method="_on_tombolx2_released"]
 [connection signal="released" from="CanvasLayer/raden_intan/tombolx2" to="CanvasLayer/raden_intan" method="_on_tombolx2_released"]
+[connection signal="released" from="CanvasLayer/raden_intan3/xbutton" to="." method="_on_xbutton_released"]
+[connection signal="timeout" from="CanvasLayer/raden_intan3/Timer" to="CanvasLayer/raden_intan3/ketemu" method="_on_Timer_timeout"]
 [connection signal="released" from="CanvasLayer/selesaimisi1/tombolnext" to="CanvasLayer/selesaimisi1" method="_on_tombolnext_released"]
 
 [editable path="hitboxpivot/clurithitbox"]
