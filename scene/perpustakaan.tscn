@@ -112,6 +112,7 @@ position = Vector2( 232, 176 )
 position = Vector2( 200, 176 )
 
 [node name="book_01" parent="." instance=ExtResource( 17 )]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

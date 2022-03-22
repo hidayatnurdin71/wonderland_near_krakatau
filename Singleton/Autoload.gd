@@ -21,3 +21,7 @@ signal gariskuning
 signal buku_diambil
 signal di_oke
 signal sudah_dapat_kamus
+signal bayangan_papan
+signal muncul_buku
+signal analog
+

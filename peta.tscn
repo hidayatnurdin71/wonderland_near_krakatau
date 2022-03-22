@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=2]
+[gd_scene load_steps=123 format=2]
 
 [ext_resource path="res://scene/character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://masukrumah.tscn" type="PackedScene" id=2]
@@ -58,6 +58,7 @@
 [ext_resource path="res://masukrumah3.gd" type="Script" id=56]
 [ext_resource path="res://areapapan.gd" type="Script" id=57]
 [ext_resource path="res://areapapan.tscn" type="PackedScene" id=58]
+[ext_resource path="res://tilemap/shadow_pp.png" type="Texture" id=59]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -1340,6 +1341,11 @@ texture = ExtResource( 49 )
 
 [node name="House" parent="YSort" instance=ExtResource( 50 )]
 position = Vector2( 726, 360 )
+
+[node name="bayangan_papan" type="Sprite" parent="YSort"]
+visible = false
+position = Vector2( 543, 116 )
+texture = ExtResource( 59 )
 
 [node name="areapapan" parent="YSort" instance=ExtResource( 58 )]
 position = Vector2( 543, 126 )

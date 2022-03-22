@@ -78,6 +78,8 @@ func nextPhrase() -> void:
 		Global.dialogbpk = false
 		queue_free()
 		get_tree().paused = false
+		Global.muncull = false
+		Autoload.emit_signal("analog")
 		return
 	
 	finished = false

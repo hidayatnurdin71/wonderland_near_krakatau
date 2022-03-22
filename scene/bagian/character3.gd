@@ -7,6 +7,8 @@ func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		if why == true:
 			if Global.dialogbpk == true:
+				Global.muncull = true
+				Autoload.emit_signal("analog")
 				get_tree().paused = true
 				$hud/dialogchar3.show()
 

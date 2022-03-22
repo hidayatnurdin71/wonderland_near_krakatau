@@ -7,6 +7,7 @@ func _ready():
 	Autoload.connect("muncul_panduan", self,"on_muncul_panduan")
 	Autoload.connect("misi1selesai", self,"on_misi1selesai")
 	Autoload.connect("reward1", self,"on_reward1")
+	Autoload.connect("bayangan_papan",self,"on_bayangan_papan")
 	if DataManager.data["Objects"].has("character_luar"):
 		$YSort/character.global_position = DataManager.data["Objects"]["character_luar"]
 	
@@ -21,6 +22,12 @@ func _ready():
 	if DataManager.data["Objects"].has("dapetreward1"):
 		$HUD/rewardcoin.queue_free()
 	Autoload.connect("sudah_dapat_kamus",self,"on_sudah_dapat_kamus")
+func on_bayangan_papan():
+	if Global.bayangan== true:
+		$YSort/bayangan_papan.show()
+	if Global.bayangan == false:
+		$YSort/bayangan_papan.hide()
+	
 	
 #func on_push_door():
 #	if Global.map == "dalem_rumah":

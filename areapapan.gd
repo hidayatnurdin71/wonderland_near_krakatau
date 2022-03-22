@@ -8,21 +8,24 @@ func _ready():
 func _on_areapapan_body_entered(body):
 	if body.name == "character":
 		why = true
+		Global.bayangan = true
 		print("nyentuh")
+		Autoload.emit_signal("bayangan_papan")
 #		if Input.is_action_just_pressed("ui_accept"):
 #			Autoload.emit_signal("raden_intan2")
-			
 func _input(event):
 		if event.is_action_pressed("ui_accept"):
 			if why == true:
 				if Global.dialogradenintan == true:
 					get_tree().paused = true
 					_muncul()
+					Autoload.emit_signal("muncul_buku")
 				if Global.dialogradenintan == false:
 					if Global.munculterjemahan == true:
 						muncul2()
 #	if event.is_action_pressed("ui_accept"):
 #		_muncul()
+
 func muncul2():
 	Autoload.emit_signal("raden_intan3")
 func _muncul():
@@ -33,4 +36,6 @@ func _muncul():
 func _on_areapapan_body_exited(body):
 	if body.name == "character":
 		why = false
-		emit_signal("hiden")
+		Global.bayangan = false
+#		emit_signal("hiden")
+		Autoload.emit_signal("bayangan_papan")

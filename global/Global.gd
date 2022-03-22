@@ -17,3 +17,6 @@ var dialogradenintan = true
 var dialogradenintan2 = true
 var badan = false
 var munculterjemahan = false
+var cluritketemu = false
+var bayangan = false
+var muncull = null

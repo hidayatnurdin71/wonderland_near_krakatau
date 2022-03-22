@@ -44,6 +44,14 @@ func _ready():
 		on_pick_tool()
 	if DataManager.data["Objects"].has("aksara1"):
 		$CanvasLayer/raden_intan.queue_free()
+	if DataManager.data["Objects"].has("misi1sudah"):
+		$CanvasLayer/bar_misi/temukan_celurit.show()
+		$CanvasLayer/bar_misi/cheklis.show()
+	if DataManager.data["Objects"].has("temukanbuku"):
+		$CanvasLayer/bar_misi/temukan_buku.show()
+	if DataManager.data["Objects"].has("misi2"):
+		$CanvasLayer/bar_misi/temukan_buku.show()
+		$CanvasLayer/bar_misi/cheklis2.show()
 		Autoload.emit_signal("sudah_dapat_kamus")
 	Autoload.connect("pick_tool", self, "_on_Box_clurite_pressed")
 	Autoload.connect("ganti_tool", self, "on_ganti_tool")
@@ -56,6 +64,7 @@ func _ready():
 	Autoload.connect("buku_diambil",self,"on_buku_diambil")
 	Autoload.connect("di_oke",self,"on_di_oke")
 	Autoload.connect("raden_intan3",self,"on_raden_intan3")
+	Autoload.connect("analog",self,"on_analog")
 #	Autoload.connect("hiden",self,"on_hiden")
 	animationTree.active = true
 
@@ -131,10 +140,14 @@ func on_ganti_tool():
 	$CanvasLayer/aksi_clurit.hide()
 	
 func on_ketemu():
+#	Global.cluritketemu = true
 	$CanvasLayer/dialogceluritketemu.show()
 	$CanvasLayer/bar_misi/cheklis.show()
 	dialog_timer3.start()
 	on_pick_tool()
+#	Autoload.emit_signal("misi1sudah")
+	DataManager.data["Objects"]["misi1sudah"]=["sudah"]
+	DataManager.save_data()
 func _on_Box_clurite_pressed():	
 	on_pick_tool() # Replace with function body.
 
@@ -144,6 +157,7 @@ func on_misi1():
 	dialogmisi1 = true
 	get_tree().paused = true
 #	$CanvasLayer/bar_misi.show()
+	$CanvasLayer/lihat_misi/notif.show()
 	$CanvasLayer/bar_misi/temukan_celurit.show()
 	$CanvasLayer/dialog_box.show()
 #	$CanvasLayer/dialog_box/misipertama.show()
@@ -179,6 +193,7 @@ func _on_tombolx_pressed():
 func _on_xbutton_pressed():
 	$CanvasLayer/dialogceluritketemu.hide()
 	Autoload.emit_signal("muncul_panduan")
+	$CanvasLayer/lihat_misi/notif.hide()
 	
 
 
@@ -197,6 +212,10 @@ func _on_tombolx1_released():
 	DataManager.save_data()
 	$CanvasLayer/awalgame.hide()
 func on_raden_intan2():
+	$CanvasLayer/bar_misi/temukan_buku.show()
+	$CanvasLayer/lihat_misi/notif.show()
+	DataManager.data["Objects"]["temukanbuku"]=["sudah"]
+	DataManager.save_data()
 #	tampak = show()
 #	raden_intan2 = true
 	get_tree().paused = true
@@ -221,21 +240,29 @@ func on_buku_diambil():
 	$CanvasLayer/box_kosong.hide()
 	$CanvasLayer/buku_pengetahuan.hide()
 func on_di_oke():
+	$CanvasLayer/lihat_misi/notif.hide()
 	$CanvasLayer/box_hand.show()
 	$CanvasLayer/aksi.show()
 	$CanvasLayer/Joystick.show()
 	$CanvasLayer/base.show()
 	$CanvasLayer/box_kosong.show()
 	$CanvasLayer/buku_pengetahuan.show()
+	$CanvasLayer/bar_misi/cheklis2.show()
+	DataManager.data["Objects"]["misi2"]=["sudah"]
+	DataManager.save_data()
 func on_raden_intan3():
-	get_tree().paused = true
+#	get_tree().paused = true
 #	if i == "hide":
 #	if Global.dialogradenintan2 == true:
 	$CanvasLayer/raden_intan3.show()
-	dialog_timer3.start()
+	dialog_timer4.start()
 #	if Global.dialogradenintan2 == false:
 #		$CanvasLayer/raden_intan3.hide()
 
-
+func on_analog():
+	if Global.muncull == true:
+		$CanvasLayer/Joystick.hide()
+	if Global.muncull == false:
+		$CanvasLayer/Joystick.show()
 func _on_xbutton_released():
 	$CanvasLayer/raden_intan3.hide()
