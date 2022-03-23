@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="FIRST_TRY"
-run/main_scene="res://scene/MENU.tscn"
+run/main_scene="res://scene/splash_screen.tscn"
 boot_splash/image="res://godot.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false

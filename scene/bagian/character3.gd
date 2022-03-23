@@ -11,6 +11,10 @@ func _input(event):
 				Autoload.emit_signal("analog")
 				get_tree().paused = true
 				$hud/dialogchar3.show()
+				Global.areaada = true
+				DataManager.data["Objects"]["areamuncul"]=["sudah"]
+				DataManager.save_data()
+				Autoload.emit_signal("anter_buah")
 
 func _on_character3_body_entered(body):
 	if body.name == "character":

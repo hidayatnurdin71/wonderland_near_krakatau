@@ -24,4 +24,6 @@ signal sudah_dapat_kamus
 signal bayangan_papan
 signal muncul_buku
 signal analog
-
+signal tekan
+signal misi_anter
+signal anter_buah

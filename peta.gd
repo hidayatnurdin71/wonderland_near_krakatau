@@ -1,8 +1,13 @@
 extends Node2D
 
 onready var character = $YSort/character
-
+#var i = false
+#onready var a = $YSort/Areacharcewe
 func _ready():
+#	if i == false:
+#		remove_child(a)
+#	if i == true:
+#		add_child(a)
 #	Autoload.connect("push_door", self,"on_push_door")
 	Autoload.connect("muncul_panduan", self,"on_muncul_panduan")
 	Autoload.connect("misi1selesai", self,"on_misi1selesai")
@@ -22,6 +27,12 @@ func _ready():
 	if DataManager.data["Objects"].has("dapetreward1"):
 		$HUD/rewardcoin.queue_free()
 	Autoload.connect("sudah_dapat_kamus",self,"on_sudah_dapat_kamus")
+	Autoload.connect("anter_buah",self,"on_anter_buah")
+	if DataManager.data["Objects"].has("areamuncul"):
+		Global.areaada = true
+	if DataManager.data["Objects"].has("misi_anter"):
+		$YSort/Areacharcewe.queue_free()
+		$YSort/char_ceweMisi.queue_free()
 func on_bayangan_papan():
 	if Global.bayangan== true:
 		$YSort/bayangan_papan.show()
@@ -51,3 +62,7 @@ func on_sudah_dapat_kamus():
 	pass
 func _on_area_body_entered(body):
 	pass # Replace with function body.
+func on_anter_buah():
+#	i = true
+	$YSort/char_ceweMisi.show()
+	$YSort/Areacharcewe.show()

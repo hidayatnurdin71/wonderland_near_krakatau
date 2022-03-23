@@ -18,6 +18,7 @@ onready var dialog_timer = $CanvasLayer/dialog_box/Timer
 onready var dialog_timer2 = $CanvasLayer/dialog_ganti/Timer
 onready var dialog_timer3 = $CanvasLayer/dialogceluritketemu/Timer
 onready var dialog_timer4 = $CanvasLayer/raden_intan3/Timer
+onready var dialog_timer5 = $CanvasLayer/misi_anterbuah/Timer
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
@@ -40,7 +41,7 @@ func _ready():
 	if DataManager.data["Objects"].has("misipertama"):
 		$CanvasLayer/bar_misi/temukan_celurit.show()
 	if DataManager.data["Objects"].has("Celurite"):
-		$CanvasLayer/bar_misi/temukan_celurit.hide()
+#		$CanvasLayer/bar_misi/temukan_celurit.hide()
 		on_pick_tool()
 	if DataManager.data["Objects"].has("aksara1"):
 		$CanvasLayer/raden_intan.queue_free()
@@ -65,6 +66,7 @@ func _ready():
 	Autoload.connect("di_oke",self,"on_di_oke")
 	Autoload.connect("raden_intan3",self,"on_raden_intan3")
 	Autoload.connect("analog",self,"on_analog")
+	Autoload.connect("misi_anter",self,"on_misi_anter")
 #	Autoload.connect("hiden",self,"on_hiden")
 	animationTree.active = true
 
@@ -266,3 +268,6 @@ func on_analog():
 		$CanvasLayer/Joystick.show()
 func _on_xbutton_released():
 	$CanvasLayer/raden_intan3.hide()
+func on_misi_anter():
+	$CanvasLayer/misi_anterbuah.show()
+	dialog_timer5.start()

@@ -20,3 +20,5 @@ var munculterjemahan = false
 var cluritketemu = false
 var bayangan = false
 var muncull = null
+var misi_anter = false
+var areaada = false
