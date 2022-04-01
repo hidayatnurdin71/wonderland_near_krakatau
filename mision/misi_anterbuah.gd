@@ -74,7 +74,7 @@ func nextPhrase() -> void:
 		get_tree().paused = false
 #		Autoload.emit_signal("reward1")
 #		Global.coins = Global.reward +Global.coins
-		Global.misi_anter = true
+		Global.misi_anter= true
 		DataManager.data["Objects"]["misi_anter"]=["sudah"]
 		DataManager.save_data()
 		return

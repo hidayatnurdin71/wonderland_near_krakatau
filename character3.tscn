@@ -84,6 +84,7 @@ action = "oke"
 [node name="tutup" type="AnimatedSprite" parent="hud/dialogchar3/tombol"]
 frames = SubResource( 6 )
 animation = "tombolx"
+frame = 1
 playing = true
 
 [node name="Sprite" type="Sprite" parent="hud/dialogchar3"]

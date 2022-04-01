@@ -19,7 +19,9 @@ onready var dialog_timer2 = $CanvasLayer/dialog_ganti/Timer
 onready var dialog_timer3 = $CanvasLayer/dialogceluritketemu/Timer
 onready var dialog_timer4 = $CanvasLayer/raden_intan3/Timer
 onready var dialog_timer5 = $CanvasLayer/misi_anterbuah/Timer
+onready var dialog_timer6 = $CanvasLayer/misi_terimabuah/Timer
 onready var animationPlayer = $AnimationPlayer
+onready var animationPlayer2 = $CanvasLayer/Animationpisang
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var joystick = $CanvasLayer/Joystick/JoyButton
@@ -50,6 +52,9 @@ func _ready():
 		$CanvasLayer/bar_misi/cheklis.show()
 	if DataManager.data["Objects"].has("temukanbuku"):
 		$CanvasLayer/bar_misi/temukan_buku.show()
+	if DataManager.data["Objects"].has("buah_diterima"):
+		$CanvasLayer/misi_terimabuah.queue_free()
+		$CanvasLayer/pisang.queue_free()
 	if DataManager.data["Objects"].has("misi2"):
 		$CanvasLayer/bar_misi/temukan_buku.show()
 		$CanvasLayer/bar_misi/cheklis2.show()
@@ -67,6 +72,7 @@ func _ready():
 	Autoload.connect("raden_intan3",self,"on_raden_intan3")
 	Autoload.connect("analog",self,"on_analog")
 	Autoload.connect("misi_anter",self,"on_misi_anter")
+	Autoload.connect("terima_buah",self,"on_terima_buah")
 #	Autoload.connect("hiden",self,"on_hiden")
 	animationTree.active = true
 
@@ -269,5 +275,16 @@ func on_analog():
 func _on_xbutton_released():
 	$CanvasLayer/raden_intan3.hide()
 func on_misi_anter():
+	get_tree().paused = true
 	$CanvasLayer/misi_anterbuah.show()
 	dialog_timer5.start()
+	$CanvasLayer/pisang.show()
+	animationPlayer2.play("pisang")
+#	if Global.misi_anter == true:
+#		$CanvasLayer/pisang.show()
+func on_terima_buah():
+	get_tree().paused = true
+	$CanvasLayer/misi_terimabuah.show()
+	dialog_timer6.start()
+	if Global.misi_anter_selesai == true:
+		$CanvasLayer/pisang.hide()

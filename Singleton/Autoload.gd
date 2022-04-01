@@ -27,3 +27,4 @@ signal analog
 signal tekan
 signal misi_anter
 signal anter_buah
+signal terima_buah

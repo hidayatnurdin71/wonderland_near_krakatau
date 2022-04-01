@@ -22,3 +22,5 @@ var bayangan = false
 var muncull = null
 var misi_anter = false
 var areaada = false
+var i = false
+var misi_anter_selesai = false

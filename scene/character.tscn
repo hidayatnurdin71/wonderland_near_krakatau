@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://3.png" type="Texture" id=1]
 [ext_resource path="res://scene/character.gd" type="Script" id=2]
@@ -36,6 +36,8 @@
 [ext_resource path="res://scene/radenintan3.gd" type="Script" id=34]
 [ext_resource path="res://tilemap/button/notif.png" type="Texture" id=35]
 [ext_resource path="res://mision/misi_anterbuah.gd" type="Script" id=36]
+[ext_resource path="res://mision/misi_terimabuah.gd" type="Script" id=37]
+[ext_resource path="res://tilemap/button/pisangg.png" type="Texture" id=38]
 
 [sub_resource type="CircleShape2D" id=1]
 custom_solver_bias = 1.0
@@ -604,6 +606,22 @@ animations = [ {
 "name": "default",
 "speed": 3.0
 } ]
+
+[sub_resource type="Animation" id=53]
+resource_name = "pisang"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("pisang:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 232, 144 ), Vector2( 232, 142 ), Vector2( 232, 144 ) ]
+}
 
 [node name="character" type="KinematicBody2D"]
 collision_layer = 2
@@ -1175,7 +1193,6 @@ margin_top = -24.0
 margin_right = 88.0
 margin_bottom = 24.0
 custom_fonts/normal_font = ExtResource( 27 )
-scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1194,6 +1211,59 @@ playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/misi_anterbuah"]
 wait_time = 0.05
+
+[node name="misi_terimabuah" type="Sprite" parent="CanvasLayer"]
+pause_mode = 2
+visible = false
+position = Vector2( 160, 120 )
+texture = ExtResource( 15 )
+script = ExtResource( 37 )
+
+[node name="character" type="Sprite" parent="CanvasLayer/misi_terimabuah"]
+pause_mode = 2
+position = Vector2( -122, -8 )
+scale = Vector2( 0.273291, 0.273291 )
+
+[node name="Name" type="RichTextLabel" parent="CanvasLayer/misi_terimabuah"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="CanvasLayer/misi_terimabuah"]
+margin_left = -88.0
+margin_top = -24.0
+margin_right = 88.0
+margin_bottom = 24.0
+custom_fonts/normal_font = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tombolnext" type="TouchScreenButton" parent="CanvasLayer/misi_terimabuah"]
+position = Vector2( 80, 16 )
+scale = Vector2( 0.75, 0.75 )
+shape = SubResource( 38 )
+shape_centered = false
+action = "oke"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/misi_terimabuah/tombolnext"]
+frames = SubResource( 41 )
+animation = "tombolx"
+playing = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer/misi_terimabuah"]
+wait_time = 0.05
+
+[node name="Animationpisang" type="AnimationPlayer" parent="CanvasLayer"]
+anims/pisang = SubResource( 53 )
+
+[node name="pisang" type="Sprite" parent="CanvasLayer"]
+visible = false
+position = Vector2( 232, 143.879 )
+texture = ExtResource( 38 )
 
 [connection signal="released" from="CanvasLayer/lihat_misi/tekan" to="CanvasLayer" method="_on_tekan_released"]
 [connection signal="released" from="CanvasLayer/bar_misi/tomboltutupmisi" to="CanvasLayer" method="_on_tomboltutupmisi_released"]
@@ -1214,5 +1284,6 @@ wait_time = 0.05
 [connection signal="timeout" from="CanvasLayer/raden_intan3/Timer" to="CanvasLayer/raden_intan3/ketemu" method="_on_Timer_timeout"]
 [connection signal="released" from="CanvasLayer/selesaimisi1/tombolnext" to="CanvasLayer/selesaimisi1" method="_on_tombolnext_released"]
 [connection signal="released" from="CanvasLayer/misi_anterbuah/tombolnext" to="CanvasLayer/misi_anterbuah" method="_on_tombolnext_released"]
+[connection signal="released" from="CanvasLayer/misi_terimabuah/tombolnext" to="CanvasLayer/misi_terimabuah" method="_on_tombolnext_released"]
 
 [editable path="hitboxpivot/clurithitbox"]
