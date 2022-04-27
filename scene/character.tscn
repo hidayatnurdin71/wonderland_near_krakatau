@@ -531,7 +531,7 @@ graph_offset = Vector2( 0, 49.3587 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=34]
 
 [sub_resource type="RectangleShape2D" id=35]
-extents = Vector2( 35, 8 )
+extents = Vector2( 43, 8 )
 
 [sub_resource type="DynamicFontData" id=36]
 font_path = "res://font/dogica.ttf"
@@ -719,11 +719,9 @@ action = "oke"
 position = Vector2( -2.66666, -2.66667 )
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="temukan_celurit" type="RichTextLabel" parent="CanvasLayer/bar_misi"]
-visible = false
 margin_left = -30.0
 margin_top = -23.0
 margin_right = 50.0
@@ -740,7 +738,6 @@ position = Vector2( -38, -19 )
 texture = ExtResource( 30 )
 
 [node name="temukan_buku" type="RichTextLabel" parent="CanvasLayer/bar_misi"]
-visible = false
 margin_left = -30.0
 margin_top = -9.0
 margin_right = 50.0
@@ -866,7 +863,6 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialog_box/tombolnext"]
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialog_box"]
@@ -911,13 +907,13 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialog_ganti/tombolx"]
 frames = SubResource( 48 )
 animation = "pencet"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialog_ganti"]
 wait_time = 0.05
 
 [node name="dialogceluritketemu" type="Sprite" parent="CanvasLayer"]
+pause_mode = 2
 visible = false
 position = Vector2( 160, 120 )
 texture = ExtResource( 15 )
@@ -947,7 +943,6 @@ shape_centered = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/dialogceluritketemu/xbutton"]
 frames = SubResource( 52 )
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/dialogceluritketemu"]
@@ -986,6 +981,7 @@ action = "oke"
 [node name="tutup" type="AnimatedSprite" parent="CanvasLayer/awalgame/tombolx1"]
 frames = SubResource( 41 )
 animation = "tombolx"
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/awalgame"]
@@ -1015,7 +1011,6 @@ margin_bottom = 16.0
 input_pass_on_modal_close_click = false
 custom_fonts/normal_font = ExtResource( 27 )
 meta_underlined = false
-scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1073,7 +1068,6 @@ action = "oke"
 [node name="tutup" type="AnimatedSprite" parent="CanvasLayer/raden_intan/tombolx2"]
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/raden_intan"]
@@ -1115,6 +1109,7 @@ shape_centered = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/raden_intan3/xbutton"]
 frames = SubResource( 52 )
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/raden_intan3"]
@@ -1161,7 +1156,6 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/selesaimisi1/tombolnext"]
 frames = SubResource( 41 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/selesaimisi1"]
@@ -1207,6 +1201,7 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/misi_anterbuah/tombolnext"]
 frames = SubResource( 41 )
 animation = "tombolx"
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/misi_anterbuah"]
@@ -1252,6 +1247,7 @@ action = "oke"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/misi_terimabuah/tombolnext"]
 frames = SubResource( 41 )
 animation = "tombolx"
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="CanvasLayer/misi_terimabuah"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tilemap/card/radenintan5.png" type="Texture" id=1]
 [ext_resource path="res://tilemap/MENU/bingkai menu2.png" type="Texture" id=2]
 [ext_resource path="res://scene/menuedukasi.gd" type="Script" id=3]
 [ext_resource path="res://tilemap/button/exitRight.png" type="Texture" id=4]
 [ext_resource path="res://tilemap/button/exitRight2.png" type="Texture" id=5]
+[ext_resource path="res://font/font_untuk_reward.tres" type="DynamicFont" id=6]
 
 [node name="menuedukasi" type="Node2D"]
 script = ExtResource( 3 )
@@ -22,5 +23,17 @@ texture = ExtResource( 2 )
 position = Vector2( 290, 146 )
 normal = ExtResource( 4 )
 pressed = ExtResource( 5 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 112.0
+margin_top = 15.0
+margin_right = 304.0
+margin_bottom = 136.0
+custom_fonts/normal_font = ExtResource( 6 )
+text = "Radin Inten II adalah pahlawan nasional Indonesia yang berasal dari Lampung. Ia lahir di Kuripan, Lampung, 1 Januari 1834.  Ketika masih berusia 16 tahun, ia disumpah untuk menjadi ratu di Lampung pada 1850. Setelah menjabat sebagai ratu, Intan pun dibujuk Belanda bahwa dirinya akan diampuni dan disekolahkan.  Namun, bujukan tersebut ditolak oleh Inten.  Akibatnya, tahun 1851, Belanda mengirim pasukan sekitar 400 orang untuk merebut benteng pasukan Radin Inten II di Merambung.  Melihat serangan tersebut, Inten mengerahkan perlawanan dengan dibantu oleh beberapa daerah lain, seperti Banten. Radin Inten II memperkuat benteng-benteng yang sudah ada dan membentuk benteng baru. Dari setiap serangan yang dilakukan Belanda, Radin Inten II selalu berhasil mengalahkan mereka.  Sampai akhirnya, Belanda dan Inten membuat perjanjian untuk tidak lagi saling menyerang. Namun, perjanjian itu hanya menjadi sebuah taktik yang dilakukan Belanda untuk melancarkan serangan-serangan besar terhadap Kota Lampung.  Belanda melakukan penyerangan besar tahun 1856 dipimpin oleh Kolonel Welson. Pada akhirnya, dalam serangan besar ini, Raden Inten II gugur di tangan Belanda yang disebabkan oleh kekurangan senjata dan kalah jumlah Raden Inten II wafat pada 5 Oktober 1856 di usia 22 tahun. Berkat jasa-jasanya, Raden Inten II dinobatkan sebagai Pahlawan Nasional berdasarkan SK Presiden No 082 Tahun 1986 pada 23 Oktober 1986.
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="released" from="exit" to="." method="_on_exit_released"]

@@ -19,4 +19,5 @@ func _ready():
 func _on_Areamisi_body_entered(body):
 	if body.name == "character":
 		Autoload.emit_signal("misi1")
+		Autoload.emit_signal("muncul_sabit")
 		queue_free()

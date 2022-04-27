@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=2]
+[gd_scene load_steps=132 format=2]
 
 [ext_resource path="res://scene/character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://masukrumah.tscn" type="PackedScene" id=2]
@@ -63,6 +63,9 @@
 [ext_resource path="res://character/char_cewe.tscn" type="PackedScene" id=61]
 [ext_resource path="res://character/Areacharcewe.gd" type="Script" id=62]
 [ext_resource path="res://character/Areanpc3.gd" type="Script" id=63]
+[ext_resource path="res://tilemap/button/exit2.tscn" type="PackedScene" id=64]
+[ext_resource path="res://tilemap/button/exit_to_menu.gd" type="Script" id=65]
+[ext_resource path="res://Music and Sounds/bgm.mp3" type="AudioStream" id=66]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -958,7 +961,8 @@ limit_bottom = 430
 smoothing_enabled = true
 
 [node name="Celurite" parent="." instance=ExtResource( 35 )]
-position = Vector2( 41, 232 )
+visible = false
+position = Vector2( 25, 156 )
 
 [node name="Area2D" parent="." instance=ExtResource( 14 )]
 position = Vector2( 33, 400 )
@@ -1068,10 +1072,10 @@ position = Vector2( -16, 224 )
 position = Vector2( -16, 248 )
 
 [node name="Bush23" parent="YSort/pohonpohon" instance=ExtResource( 31 )]
-position = Vector2( 48, 248 )
+position = Vector2( 97, 195 )
 
 [node name="Bush24" parent="YSort/pohonpohon" instance=ExtResource( 31 )]
-position = Vector2( 48, 272 )
+position = Vector2( 98, 214 )
 
 [node name="Bush25" parent="YSort/pohonpohon" instance=ExtResource( 31 )]
 position = Vector2( 48, 296 )
@@ -1272,7 +1276,7 @@ position = Vector2( 96, 384 )
 position = Vector2( 160, 336 )
 
 [node name="rumput12" parent="YSort/rumput" instance=ExtResource( 32 )]
-position = Vector2( 144, 336 )
+position = Vector2( 171, 146 )
 
 [node name="rumput11" parent="YSort/rumput" instance=ExtResource( 32 )]
 position = Vector2( 176, 336 )
@@ -1281,7 +1285,7 @@ position = Vector2( 176, 336 )
 position = Vector2( 160, 320 )
 
 [node name="rumput14" parent="YSort/rumput" instance=ExtResource( 32 )]
-position = Vector2( 144, 320 )
+position = Vector2( 210, 134 )
 
 [node name="rumput16" parent="YSort/rumput" instance=ExtResource( 32 )]
 position = Vector2( 112, 272 )
@@ -1503,6 +1507,7 @@ margin_right = 15.0
 margin_bottom = 18.0
 custom_fonts/normal_font = ExtResource( 43 )
 text = "a"
+scroll_active = false
 script = ExtResource( 42 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1513,11 +1518,21 @@ position = Vector2( -37.7953, -17.0079 )
 scale = Vector2( 3.7685, 1.88819 )
 shape = SubResource( 65 )
 
+[node name="exit" parent="HUD" instance=ExtResource( 64 )]
+position = Vector2( 275, -6.29825e-11 )
+scale = Vector2( 0.222104, 0.222104 )
+script = ExtResource( 65 )
+
 [node name="COIN" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1, 0 )
 
 [node name="awalmulaigame" parent="." instance=ExtResource( 37 )]
 position = Vector2( -191, 320 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 66 )
+autoplay = true
 
 [connection signal="body_entered" from="setelah_sabit_ketemu" to="setelah_sabit_ketemu" method="_on_setelah_sabit_ketemu_body_entered"]
 [connection signal="body_entered" from="YSort/Areacharcewe" to="YSort/Areacharcewe" method="_on_Areacharcewe_body_entered"]

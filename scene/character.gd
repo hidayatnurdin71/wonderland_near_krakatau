@@ -286,5 +286,6 @@ func on_terima_buah():
 	get_tree().paused = true
 	$CanvasLayer/misi_terimabuah.show()
 	dialog_timer6.start()
-	if Global.misi_anter_selesai == true:
-		$CanvasLayer/pisang.hide()
+	
+#	if Global.misi_anter_selesai == true:
+	$CanvasLayer/pisang.hide()

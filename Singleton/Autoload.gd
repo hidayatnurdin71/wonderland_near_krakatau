@@ -28,3 +28,6 @@ signal tekan
 signal misi_anter
 signal anter_buah
 signal terima_buah
+signal muncul_sabit
+signal bush_hilang
+

@@ -20,6 +20,8 @@ func _ready():
 				
 func on_muncul_buku():
 	$book_01.show()
+	var position_vector = Vector2(88,174)
+	get_node("book_01").set_position(position_vector)
 func on_buku_diambil():
 	
 	$CanvasLayer/ColorRect.show()

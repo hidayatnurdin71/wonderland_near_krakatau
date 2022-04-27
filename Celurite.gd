@@ -8,6 +8,8 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	set_process(false)
+	set_physics_process(false)
 	if DataManager.data["Objects"].has(name):
 		var nama_tools =DataManager.data["Objects"][name]
 		Global.toolls = nama_tools
@@ -25,6 +27,7 @@ func _on_Area2D_body_entered(body):
 	if body.name == "character":
 		Autoload.emit_signal("ketemu")
 		queue_free()
+		get_tree().paused = true
 		DataManager.data["Objects"][name]= [name]
 		Global.toolls=DataManager.data["Objects"][name]
 		print(Global.toolls)
