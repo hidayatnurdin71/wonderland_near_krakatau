@@ -20,6 +20,7 @@ func _input(event):
 					get_tree().paused = true
 					_muncul()
 					Autoload.emit_signal("muncul_buku")
+					
 				if Global.dialogradenintan == false:
 					if Global.munculterjemahan == true:
 						muncul2()

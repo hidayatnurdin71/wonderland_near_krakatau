@@ -9,6 +9,8 @@ func _on_Areacharcewe_body_entered(body):
 			i = true
 			if i == true:
 				Autoload.emit_signal("misi_anter")
+				Autoload.emit_signal("bush_hilang")
+				queue_free()
 
 
 func _on_Areacharcewe_body_exited(body):

@@ -72,6 +72,7 @@ func on_anter_buah():
 #	i = true
 	$YSort/char_ceweMisi.show()
 	$YSort/Areacharcewe.show()
+	
 func on_muncul_sabit():
 	$Celurite.show()
 	var position_vector = Vector2(35,207)

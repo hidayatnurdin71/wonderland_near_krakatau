@@ -1389,7 +1389,7 @@ position = Vector2( 543, 116 )
 texture = ExtResource( 59 )
 
 [node name="areapapan" parent="YSort" instance=ExtResource( 58 )]
-position = Vector2( 543, 126 )
+position = Vector2( 543, 125 )
 script = ExtResource( 57 )
 
 [node name="papankayu" type="Sprite" parent="YSort"]
