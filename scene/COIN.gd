@@ -1,30 +1,32 @@
 extends KinematicBody2D
 signal coin_collected
 var target_position = Vector2.ZERO
-var a = [1,2,3,4,5]
-#onready var rng = RandomNumberGenerator.new()
-
+var a = [-2,2,4,1]
+var angle
 func _ready():
 #	randomize()
 	a.shuffle()
 	print (a)
 	var res = a[0]
+
 	print(res)
-#	while res == 0:
-#		res = a[1]
+	if res < 0:
+		angle = PI / res
+	if res > 0:
+		angle =2 *PI / res
 #		print(rand_range(0, a.size()))
-	var angle = 2.0 * PI / res
-#	print(angle)
+#	var angle =  PI / res
 	var radius = 12
 	var vect = Vector2(cos(angle), sin(angle)) * radius
-#	print(vect)
-	var offset = Vector2(4,4)
-	target_position = global_position + offset + vect
+	print(vect)
+	var offset = Vector2(0,0)
+	target_position = global_position + vect
+	print(target_position)
 	pop(offset, target_position)
 #	print(target_position)
 		
-func pop(offset, target):
-	$Tween.interpolate_property(self, "global_position", global_position + offset, target, 0.5, Tween.TRANS_EXPO, Tween.EASE_OUT)
+func pop(offset, target_position):
+	$Tween.interpolate_property(self, "global_position", global_position + offset, target_position, 0.5, Tween.TRANS_EXPO, Tween.EASE_OUT)
 	$Tween.start()
 
 #	print(round(a[rand_range(0, a.size())]))

@@ -16,11 +16,12 @@ func _ready():
 	Autoload.connect("muncul_sabit",self,"on_muncul_sabit")
 	Autoload.connect("terima_buah",self,"on_terima_buah")
 	Autoload.connect("bush_hilang", self,"on_bush_hilang")
+	Autoload.connect("janganmuncul",self,"on_janganmuncul")
 	if DataManager.data["Objects"].has("character_luar"):
 		$YSort/character.global_position = DataManager.data["Objects"]["character_luar"]
 	
-	if DataManager.data["Objects"].has("misipertama"):
-		$Area2D.queue_free()
+#	if DataManager.data["Objects"].has("misipertama"):
+#		$Area2D.queue_free()
 	if DataManager.data["Objects"].has("awalgamesudah"):
 		$awalmulaigame.queue_free()
 #	print(DataManager.data)
@@ -36,6 +37,10 @@ func _ready():
 	if DataManager.data["Objects"].has("misi_anter"):
 		$YSort/Areacharcewe.queue_free()
 		$YSort/char_ceweMisi.queue_free()
+	if DataManager.data["Objects"].has("bushpindah"):
+		var position_vector = Vector2(35,207)
+		get_node("YSort/pohonpohon/Bush23").set_position(position_vector)
+		get_node("YSort/pohonpohon/Bush24").set_position(position_vector)
 func on_bayangan_papan():
 	if Global.bayangan== true:
 		$YSort/bayangan_papan.show()
@@ -62,7 +67,8 @@ func _process(delta):
 	DataManager.save_data()
 	if $AudioStreamPlayer.playing == false :
 		$AudioStreamPlayer.play()
-
+func on_janganmuncul():
+	$Area2D.queue_free()
 func on_sudah_dapat_kamus():
 	pass
 func _on_area_body_entered(body):
@@ -81,3 +87,5 @@ func on_bush_hilang():
 		var position_vector = Vector2(35,207)
 		get_node("YSort/pohonpohon/Bush23").set_position(position_vector)
 		get_node("YSort/pohonpohon/Bush24").set_position(position_vector)
+		DataManager.data["Objects"]["bushpindah"]= "selesai"
+		DataManager.save_data()

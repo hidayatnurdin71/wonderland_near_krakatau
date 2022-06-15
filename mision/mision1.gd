@@ -1,23 +1,15 @@
 extends Area2D
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	
-
-	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
+var i= false
 func _on_Areamisi_body_entered(body):
+	i= true
 	if body.name == "character":
-		Autoload.emit_signal("misi1")
-		Autoload.emit_signal("muncul_sabit")
-		queue_free()
+		if i == true:
+			Autoload.emit_signal("misi1")
+			Autoload.emit_signal("muncul_sabit")
+			queue_free()
+
+
+func _on_Area2D_body_exited(body):
+	i= false
+	if body.name == "character":
+		pass

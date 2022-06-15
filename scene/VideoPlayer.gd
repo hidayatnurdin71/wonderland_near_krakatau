@@ -10,7 +10,10 @@ extends VideoPlayer
 func _ready():
 	if not DataManager.data["Settings"].has("video"):
 		self.play()
-	else: get_tree().change_scene("res://scene/bagian/WORLD.tscn")
+		Menusetting.stop_music()
+	else: 
+		get_tree().change_scene("res://scene/bagian/WORLD.tscn")
+		Menusetting.play_music()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,12 +22,14 @@ func _ready():
 
 
 func _on_VideoPlayer_finished():
+	Menusetting.play_music()
 	DataManager.data["Settings"]["video"] = true
 	DataManager.save_data()
 	get_tree().change_scene("res://scene/bagian/WORLD.tscn")
 
 
 func _on_TouchScreenButton_released():
+	Menusetting.play_music()
 	DataManager.data["Settings"]["video"] = true
 	DataManager.save_data()
 	get_tree().change_scene("res://scene/bagian/WORLD.tscn")

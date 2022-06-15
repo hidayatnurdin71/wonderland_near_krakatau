@@ -3,10 +3,13 @@ extends Node2D
 onready var character = $YSort/character
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if DataManager.data["Objects"].has("AREAUDAHDI_INJEK"):
+		$book_01.show()
 	if DataManager.data["Objects"].has("character_perpus"):
 		character.global_position = DataManager.data["Objects"]["character_perpus"]
 	if DataManager.data["Objects"].has("buku"):
 		$book_01.queue_free()
+	
 	Autoload.connect("muncul_buku",self,"on_muncul_buku")
 	Autoload.connect("buku_diambil",self,"on_buku_diambil")
 	

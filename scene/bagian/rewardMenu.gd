@@ -2,9 +2,10 @@ extends Node2D
 
 func _ready():
 	if DataManager.data["Settings"].has("dikurang1"):
-		$radenintan2.show()
-		$ke_detail.show()
-		$locked.queue_free()
+#		$radenintan2.show()
+		$ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/CardMenu1/TextureRect.show()
+		$ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/CardMenu1/ke_detail.show()
+		$ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/CardMenu1/tombol1.queue_free()
 
 func _on_exit_released():
 	get_tree().change_scene("res://scene/bagian/WORLD.tscn")
@@ -23,22 +24,21 @@ func _on_ya_pressed():
 		DataManager.data["Settings"]["dikurang1"]= Global.coindikurang
 		DataManager.save_data()
 		$yakin.hide()
-		$radenintan2.show()
-		$ke_detail.show()
+#		$radenintan2.show()
+		$ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/CardMenu1/TextureRect.show()
+		$ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/CardMenu1/ke_detail.show()
 
 func _on_tidak_pressed():
 	$yakin.hide()
-	$locked.show()
+	$ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/CardMenu1/tombol1.show()
 
 func _on_tombol1_released():
 	$yakin.show()
-	
-	$locked.hide()
+	$ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/CardMenu1/tombol1.hide()
 
 func _on_uangkurang_released():
 	$uangkurang.hide()
-	$locked.show()
+	$ScrollContainer/CenterContainer/MarginContainer/HBoxContainer/CardMenu1/tombol1.show()
 
-
-func _on_ke_detail_pressed():
+func _on_ke_detail_released():
 	get_tree().change_scene("res://scene/menuedukasi.tscn")

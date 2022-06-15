@@ -18,3 +18,4 @@ func _ready():
 
 func _on_oke_released():
 		get_tree().change_scene("res://scene/MENU.tscn")
+		Menusetting.play_music()

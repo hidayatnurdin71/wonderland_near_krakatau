@@ -1,4 +1,5 @@
 extends Node2D
+export(NodePath) var audio_stream_player_path
 #onready var tombolAK = $CanvasLayer/actionbutton
 #onready var tree = get_tree()
 #var hey = false

@@ -40,8 +40,8 @@ var dialoggantitgn = false
 func _ready():
 #	if DataManager.data["Objects"].has(name):
 #		global_position = DataManager.data["Objects"][name]
-	if DataManager.data["Objects"].has("misipertama"):
-		$CanvasLayer/bar_misi/temukan_celurit.show()
+#	if DataManager.data["Objects"].has("misipertama"):
+#		$CanvasLayer/bar_misi/temukan_celurit.show()
 	if DataManager.data["Objects"].has("Celurite"):
 #		$CanvasLayer/bar_misi/temukan_celurit.hide()
 		on_pick_tool()
@@ -50,6 +50,7 @@ func _ready():
 	if DataManager.data["Objects"].has("misi1sudah"):
 		$CanvasLayer/bar_misi/temukan_celurit.show()
 		$CanvasLayer/bar_misi/cheklis.show()
+		Autoload.emit_signal("janganmuncul")
 	if DataManager.data["Objects"].has("temukanbuku"):
 		$CanvasLayer/bar_misi/temukan_buku.show()
 	if DataManager.data["Objects"].has("buah_diterima"):

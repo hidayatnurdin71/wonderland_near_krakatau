@@ -110,7 +110,6 @@ position = Vector2( 60, 95 )
 scale = Vector2( 0.1625, 0.1625 )
 frames = SubResource( 1 )
 animation = "anim"
-frame = 8
 playing = true
 
 [node name="oke" type="TouchScreenButton" parent="."]

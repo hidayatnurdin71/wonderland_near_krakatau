@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://tilemap/Full Coins.png" type="Texture" id=1]
 [ext_resource path="res://scene/COIN.gd" type="Script" id=2]
+[ext_resource path="res://Music and Sounds/Menu Select.wav" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.0
@@ -9,18 +10,43 @@ radius = 4.0
 [sub_resource type="Animation" id=2]
 resource_name = "BOUNCE"
 length = 0.5
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:position")
+tracks/0/type = "audio"
+tracks/0/path = NodePath("AudioStreamPlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0.2 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("kolekarea/area:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -8 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -5 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -49,7 +75,7 @@ script = ExtResource( 2 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 1 )
 hframes = 8
-frame = 1
+frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -62,8 +88,13 @@ anims/COINS = SubResource( 3 )
 
 [node name="area" type="CollisionShape2D" parent="kolekarea"]
 shape = SubResource( 4 )
+disabled = true
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "SFX"
 
 [connection signal="body_entered" from="kolekarea" to="." method="_on_kolekarea_body_entered"]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

@@ -19,6 +19,8 @@ func _input(event):
 				if Global.dialogradenintan == true:
 					get_tree().paused = true
 					_muncul()
+					DataManager.data["Objects"]["AREAUDAHDI_INJEK"]= "selesai"
+					DataManager.save_data()
 					Autoload.emit_signal("muncul_buku")
 					
 				if Global.dialogradenintan == false:
