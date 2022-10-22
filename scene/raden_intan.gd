@@ -80,7 +80,8 @@ func getDialog() -> Array:
 func nextPhrase() -> void:
 	if phraseNum >= len(dialog):
 		Global.dialogradenintan=false
-		queue_free()
+#		queue_free()
+		hide()
 		get_tree().paused = false
 		return
 

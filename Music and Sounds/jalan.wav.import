@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/jalan.wav-7b1323efb289caa9ed9be2c33b8cf610.sample"
+
+[deps]
+
+source_file="res://Music and Sounds/jalan.wav"
+dest_files=[ "res://.import/jalan.wav-7b1323efb289caa9ed9be2c33b8cf610.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

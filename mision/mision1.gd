@@ -7,6 +7,7 @@ func _on_Areamisi_body_entered(body):
 			Autoload.emit_signal("misi1")
 			Autoload.emit_signal("muncul_sabit")
 			queue_free()
+			
 
 
 func _on_Area2D_body_exited(body):

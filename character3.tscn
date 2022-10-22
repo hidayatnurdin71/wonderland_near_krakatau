@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scene/bagian/dialogchar3.gd" type="Script" id=1]
 [ext_resource path="res://scene/bagian/character3.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://tilemap/button/question.png" type="Texture" id=6]
 [ext_resource path="res://font/fontdefault.tres" type="DynamicFont" id=7]
 [ext_resource path="res://tilemap/button/npc3.png" type="Texture" id=8]
+[ext_resource path="res://dialog/dialogHALO.gd" type="Script" id=9]
+[ext_resource path="res://character/lineoutBPK.png" type="Texture" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.0
@@ -92,12 +94,52 @@ position = Vector2( -122, -10 )
 scale = Vector2( 0.287879, 0.287879 )
 texture = ExtResource( 8 )
 
+[node name="dialogHALO" type="Sprite" parent="hud"]
+visible = false
+position = Vector2( 160, 120 )
+texture = ExtResource( 4 )
+script = ExtResource( 9 )
+
+[node name="Text" type="RichTextLabel" parent="hud/dialogHALO"]
+margin_left = -88.0
+margin_top = -24.0
+margin_right = 88.0
+margin_bottom = 24.0
+custom_fonts/normal_font = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite2" type="Sprite" parent="hud/dialogHALO"]
+position = Vector2( -122, -10 )
+scale = Vector2( 0.287879, 0.287879 )
+texture = ExtResource( 8 )
+
+[node name="tombol2" type="TouchScreenButton" parent="hud/dialogHALO"]
+position = Vector2( 80, 16 )
+scale = Vector2( 0.75, 0.75 )
+shape = SubResource( 3 )
+shape_centered = false
+action = "oke"
+
+[node name="tutup" type="AnimatedSprite" parent="hud/dialogHALO/tombol2"]
+frames = SubResource( 6 )
+animation = "tombolx"
+playing = true
+
+[node name="Timer" type="Timer" parent="hud/dialogHALO"]
+
 [node name="tandaanya" type="Sprite" parent="."]
 visible = false
 position = Vector2( -7, -16 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
 
+[node name="lineoutbpk" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 10 )
+
 [connection signal="body_entered" from="." to="." method="_on_character3_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_character3_body_exited"]
 [connection signal="pressed" from="hud/dialogchar3/tombol" to="hud/dialogchar3" method="_on_tombol_pressed"]
+[connection signal="pressed" from="hud/dialogHALO/tombol2" to="hud/dialogHALO" method="_on_tombol2_pressed"]

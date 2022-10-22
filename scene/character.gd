@@ -20,6 +20,8 @@ onready var dialog_timer3 = $CanvasLayer/dialogceluritketemu/Timer
 onready var dialog_timer4 = $CanvasLayer/raden_intan3/Timer
 onready var dialog_timer5 = $CanvasLayer/misi_anterbuah/Timer
 onready var dialog_timer6 = $CanvasLayer/misi_terimabuah/Timer
+onready var dialog_timer7 = $CanvasLayer/misitemukan_pisang/Timer
+onready var dialog_timer8 = $CanvasLayer/misitemukan_pisang2/Timer
 onready var animationPlayer = $AnimationPlayer
 onready var animationPlayer2 = $CanvasLayer/Animationpisang
 onready var animationTree = $AnimationTree
@@ -45,21 +47,57 @@ func _ready():
 	if DataManager.data["Objects"].has("Celurite"):
 #		$CanvasLayer/bar_misi/temukan_celurit.hide()
 		on_pick_tool()
+	if DataManager.data["Objects"].has("anterpisang"):
+		Global.buah = true
+#		$pisang.show()
+#		animationPlayer2.play("pisang")
 	if DataManager.data["Objects"].has("aksara1"):
 		$CanvasLayer/raden_intan.queue_free()
 	if DataManager.data["Objects"].has("misi1sudah"):
 		$CanvasLayer/bar_misi/temukan_celurit.show()
-		$CanvasLayer/bar_misi/cheklis.show()
+#		$CanvasLayer/bar_misi/cheklis.show()
 		Autoload.emit_signal("janganmuncul")
 	if DataManager.data["Objects"].has("temukanbuku"):
 		$CanvasLayer/bar_misi/temukan_buku.show()
 	if DataManager.data["Objects"].has("buah_diterima"):
+		
+		Global.npc_afnan = true
 		$CanvasLayer/misi_terimabuah.queue_free()
-		$CanvasLayer/pisang.queue_free()
+		$pisang.queue_free()
+		$CanvasLayer/bar_misi/temukan_afnan.queue_free()
 	if DataManager.data["Objects"].has("misi2"):
-		$CanvasLayer/bar_misi/temukan_buku.show()
-		$CanvasLayer/bar_misi/cheklis2.show()
+		$CanvasLayer/bar_misi/temukan_buku.queue_free()
+		$CanvasLayer/bar_misi/cheklis2.queue_free()
 		Autoload.emit_signal("sudah_dapat_kamus")
+	if DataManager.data["Objects"].has("misi3"):
+		$CanvasLayer/bar_misi/temukan_afnan.queue_free()
+		$CanvasLayer/bar_misi/cheklis3.queue_free()
+	if DataManager.data["Objects"].has("misi_cari_pisang"):
+		$CanvasLayer/lihat_misi/notif.show()
+		$CanvasLayer/bar_misi/cari_pisang.show()
+	if DataManager.data["Objects"].has("misi4"):
+		$CanvasLayer/bar_misi/cari_pisang.queue_free()
+		$CanvasLayer/bar_misi/cheklis4.queue_free()
+	if DataManager.data["Objects"].has("celurit_ketemu"):
+		$CanvasLayer/bar_misi/temukan_celurit.queue_free()
+		$CanvasLayer/bar_misi/cheklis.queue_free()
+	if DataManager.data["Objects"].has("temukan_afnan"):
+		if DataManager.data["Objects"].has("buah_diterima"):
+			Global.misi_anter_selesai = true
+			$pisang.queue_free()
+			$CanvasLayer/misi_terimabuah.queue_free()
+			$CanvasLayer/bar_misi/temukan_afnan.queue_free()
+		else:
+			Global.misi_anter_selesai = false
+			Global.buah = true
+			$pisang.show()
+			
+			$CanvasLayer/bar_misi/temukan_afnan.show()
+	if DataManager.data["Objects"].has("pisang_pertama_sudah"):
+		$CanvasLayer/bar_misi/cari_pisang.queue_free()
+		$CanvasLayer/bar_misi/cari_pisang2.show()
+	if DataManager.data["Objects"].has("pisang_kedua_sudah"):
+		$CanvasLayer/bar_misi/cari_pisang2.queue_free()
 	Autoload.connect("pick_tool", self, "_on_Box_clurite_pressed")
 	Autoload.connect("ganti_tool", self, "on_ganti_tool")
 	Autoload.connect("dialooog", self,"on_dialooog")
@@ -74,6 +112,16 @@ func _ready():
 	Autoload.connect("analog",self,"on_analog")
 	Autoload.connect("misi_anter",self,"on_misi_anter")
 	Autoload.connect("terima_buah",self,"on_terima_buah")
+	Autoload.connect("pohon_pisang",self,"on_misi_pisang")
+	Autoload.connect("pohon_pisang2",self,"on_misi_pisang2")
+	Autoload.connect("reward1",self,"on_reward1")
+	Autoload.connect("misi2",self,"on_misi2")
+	Autoload.connect("misi3",self,"on_misi3")
+	Autoload.connect("misi4",self,"on_misi4")
+	Autoload.connect("misi5",self,"on_misi5")
+	Autoload.connect("cari_pisang",self,"on_cari_pisang")
+	Autoload.connect("dapetmisi2",self,"on_dapetmisi2")
+	Autoload.connect("dapetmisi4",self,"on_dapetmisi4")
 #	Autoload.connect("hiden",self,"on_hiden")
 	animationTree.active = true
 
@@ -151,7 +199,7 @@ func on_ganti_tool():
 func on_ketemu():
 #	Global.cluritketemu = true
 	$CanvasLayer/dialogceluritketemu.show()
-	$CanvasLayer/bar_misi/cheklis.show()
+#	$CanvasLayer/bar_misi/cheklis.show()
 	dialog_timer3.start()
 	on_pick_tool()
 #	Autoload.emit_signal("misi1sudah")
@@ -169,6 +217,8 @@ func on_misi1():
 	$CanvasLayer/lihat_misi/notif.show()
 	$CanvasLayer/bar_misi/temukan_celurit.show()
 	$CanvasLayer/dialog_box.show()
+	DataManager.data["Objects"]["misi_pertama_sudah_muncul"]=["sudah"]
+	DataManager.save_data()
 #	$CanvasLayer/dialog_box/misipertama.show()
 	dialog_timer.start()
 func on_dialooog():
@@ -215,6 +265,9 @@ func _on_COIN_coin_collected():
 func on_misi1selesai():
 	get_tree().paused = true
 	$CanvasLayer/selesaimisi1.show()
+	$CanvasLayer/bar_misi/temukan_celurit.queue_free()
+	DataManager.data["Objects"]["celurit_ketemu"]=["sudah"]
+	DataManager.save_data()
 func _on_tombolx1_released():
 	awalgame = false
 	DataManager.data["Objects"]["awalgamesudah"]=["sudah"]
@@ -223,23 +276,17 @@ func _on_tombolx1_released():
 func on_raden_intan2():
 	$CanvasLayer/bar_misi/temukan_buku.show()
 	$CanvasLayer/lihat_misi/notif.show()
-	DataManager.data["Objects"]["temukanbuku"]=["sudah"]
-	DataManager.save_data()
+
 #	tampak = show()
 #	raden_intan2 = true
 	get_tree().paused = true
-#	if i == "hide":
-	if Global.dialogradenintan == true:
-		$CanvasLayer/raden_intan.show()
-	if Global.dialogradenintan == false:
-		$CanvasLayer/raden_intan.hide()
-#	if i == "show":
+	$CanvasLayer/raden_intan.show()
+#	if Global.dialogradenintan == true:
+#		$CanvasLayer/raden_intan.show()
+#	if Global.dialogradenintan == false:
 #		$CanvasLayer/raden_intan.hide()
-#		i == "hide"
-#var tampak = null
-#var i = "hide"
-#func on_hiden():
-#	i = "show"
+	DataManager.data["Objects"]["temukanbuku"]=["sudah"]
+	DataManager.save_data()
 
 func on_buku_diambil():
 	$CanvasLayer/box_hand.hide()
@@ -256,7 +303,7 @@ func on_di_oke():
 	$CanvasLayer/base.show()
 	$CanvasLayer/box_kosong.show()
 	$CanvasLayer/buku_pengetahuan.show()
-	$CanvasLayer/bar_misi/cheklis2.show()
+#	$CanvasLayer/bar_misi/cheklis2.show()
 	DataManager.data["Objects"]["misi2"]=["sudah"]
 	DataManager.save_data()
 func on_raden_intan3():
@@ -279,14 +326,66 @@ func on_misi_anter():
 	get_tree().paused = true
 	$CanvasLayer/misi_anterbuah.show()
 	dialog_timer5.start()
-	$CanvasLayer/pisang.show()
-	animationPlayer2.play("pisang")
+	$pisang.show()
+	animationPlayer.play("pisang")
+	$CanvasLayer/bar_misi/temukan_afnan.show()
+	DataManager.data["Objects"]["temukan_afnan"]=["sudah"]
+	DataManager.save_data()
 #	if Global.misi_anter == true:
 #		$CanvasLayer/pisang.show()
 func on_terima_buah():
 	get_tree().paused = true
 	$CanvasLayer/misi_terimabuah.show()
 	dialog_timer6.start()
-	
+#	Global.npc_afnan = true
 #	if Global.misi_anter_selesai == true:
-	$CanvasLayer/pisang.hide()
+	$pisang.hide()
+	DataManager.data["Objects"]["buah_diterima"]=["sudah"]
+	DataManager.save_data()
+func on_misi_pisang():
+	$CanvasLayer/misitemukan_pisang.show()
+	dialog_timer7.start()
+	$CanvasLayer/bar_misi/cari_pisang.queue_free()
+	$CanvasLayer/bar_misi/cari_pisang2.show()
+	DataManager.data["Objects"]["pisang_pertama_sudah"]=["sudah"]
+	DataManager.save_data()
+func on_misi_pisang2():
+	$CanvasLayer/misitemukan_pisang2.show()
+	dialog_timer8.start()
+	$CanvasLayer/bar_misi/cari_pisang2.queue_free()
+	DataManager.data["Objects"]["pisang_kedua_sudah"]=["sudah"]
+	DataManager.save_data()
+func on_reward1():
+	$CanvasLayer/bar_misi/temukan_celurit.queue_free()
+	$CanvasLayer/bar_misi/cheklis.queue_free()
+	DataManager.data["Objects"]["misi1"]=["sudah"]
+	DataManager.save_data()
+func on_misi2():
+	$CanvasLayer/bar_misi/temukan_buku.queue_free()
+	$CanvasLayer/bar_misi/cheklis2.queue_free()
+	DataManager.data["Objects"]["misi2"]=["sudah"]
+	DataManager.save_data()
+func on_misi3():
+	$CanvasLayer/bar_misi/temukan_afnan.queue_free()
+	$CanvasLayer/bar_misi/cheklis3.queue_free()
+	DataManager.data["Objects"]["misi3"]=["sudah"]
+	DataManager.save_data()
+func on_misi4():
+	$CanvasLayer/bar_misi/cari_pisang.queue_free()
+	$CanvasLayer/bar_misi/cheklis4.queue_free()
+	DataManager.data["Objects"]["misi4"]=["sudah"]
+	DataManager.save_data()
+func on_misi5():
+	pass
+func on_dapetmisi2():
+	$CanvasLayer/lihat_misi/notif.show()
+	$CanvasLayer/bar_misi/temukan_buku.show()
+#	$CanvasLayer/bar_misi/cheklis2.queue_free()
+func on_dapetmisi4():
+	$CanvasLayer/lihat_misi/notif.show()
+	$CanvasLayer/bar_misi/cari_pisang.show()
+	DataManager.data["Objects"]["misi_cari_pisang"]=["belum"]
+	DataManager.save_data()
+#	$CanvasLayer/bar_misi/cheklis4.queue_free()
+func on_cari_pisang():
+	on_dapetmisi4()

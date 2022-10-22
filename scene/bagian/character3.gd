@@ -15,11 +15,14 @@ func _input(event):
 				DataManager.data["Objects"]["areamuncul"]=["sudah"]
 				DataManager.save_data()
 				Autoload.emit_signal("anter_buah")
-
+			if Global.dialogbpk == false:
+				$hud/dialogHALO.show()
+#				$hud/dialogHALO/Timer.start()
 func _on_character3_body_entered(body):
 	if body.name == "character":
 		why = true
 		print("apa")
+		$lineoutbpk.show()
 		$tandaanya.show()
 
 
@@ -28,5 +31,6 @@ func _on_character3_body_exited(body):
 	if body.name == "character":
 		why = false
 		print("apa")
+		$lineoutbpk.hide()
 		$tandaanya.hide()
 

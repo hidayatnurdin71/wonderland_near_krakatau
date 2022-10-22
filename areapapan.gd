@@ -17,13 +17,18 @@ func _input(event):
 		if event.is_action_pressed("ui_accept"):
 			if why == true:
 				if Global.dialogradenintan == true:
-					get_tree().paused = true
-					_muncul()
-					DataManager.data["Objects"]["AREAUDAHDI_INJEK"]= "selesai"
-					DataManager.save_data()
-					Autoload.emit_signal("muncul_buku")
-					
+#					get_tree().paused = true
+					if Global.munculterjemahan == false:
+						_muncul()
+#					_muncul()
+						DataManager.data["Objects"]["AREAUDAHDI_INJEK"]= "selesai"
+						DataManager.save_data()
+						Autoload.emit_signal("muncul_buku")
+					if Global.munculterjemahan == true:
+						muncul2()
 				if Global.dialogradenintan == false:
+					if Global.munculterjemahan == false:
+						_muncul()
 					if Global.munculterjemahan == true:
 						muncul2()
 #	if event.is_action_pressed("ui_accept"):

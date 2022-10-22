@@ -75,6 +75,7 @@ func nextPhrase() -> void:
 #		Autoload.emit_signal("reward1")
 #		Global.coins = Global.reward +Global.coins
 		Global.misi_anter= true
+#		Autoload.emit_signal("misi_anter")
 		DataManager.data["Objects"]["misi_anter"]=["sudah"]
 		DataManager.save_data()
 		return

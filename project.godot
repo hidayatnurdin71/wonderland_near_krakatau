@@ -26,6 +26,7 @@ Global="*res://global/Global.gd"
 Autoload="*res://Singleton/Autoload.gd"
 DataManager="*res://save/DataManager.gd"
 Menusetting="*res://menusetting.tscn"
+MisiManager="*res://Misi_manager.gd"
 
 [display]
 

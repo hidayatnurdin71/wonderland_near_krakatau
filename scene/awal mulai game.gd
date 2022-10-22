@@ -8,4 +8,5 @@ extends Area2D
 func _on_awalmulaigame_body_entered(body):
 	if body.name == "character":
 		Autoload.emit_signal("dialooog")
+		
 		queue_free()

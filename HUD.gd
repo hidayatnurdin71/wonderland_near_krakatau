@@ -8,3 +8,9 @@ func _on_sentuh_pressed():
 func on_terima_buah():
 	pass
 	
+
+
+func _on_sentuh2_released():
+	$rewardcoin2.queue_free()
+	DataManager.data["Objects"]["dapetreward2"]= "selesai"
+	DataManager.save_data()

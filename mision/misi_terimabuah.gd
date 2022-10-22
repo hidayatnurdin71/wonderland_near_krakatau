@@ -1,8 +1,8 @@
 extends Sprite
-var dialogPath = "user://terimabuah.json"
+var dialogPath = "user://terima_buah.json"
 export(float) var textSpeed = 0.05
 var dialog
-var _file ="terimabuah.json"
+var _file ="terima_buah.json"
 var file
 var phraseNum = 0
 var finished = false
@@ -38,17 +38,12 @@ func save_data(new_data):
 	file.store_line(to_json(new_data))
 	file.close()
 var default_data=[
-	{"image":"charatercowo" ,"Text":"hai..."},
-	{"image":"npc4" ,"Text":"halo.."},
-	{"image":"charatercowo" ,"Text":"apakah kamu yang bernama AFNAN?"},
-	{"image":"npc4" ,"Text":"iya benar.."},
-	{"image":"charatercowo" ,"Text":"ah perkenalkan namaku Rudi"},
-	{"image":"npc4" ,"Text":"ada perlu apa rudi?"},
-	{"image":"charatercowo" ,"Text":"ini aku mengantarkan buah untuk mu.."},
-	{"image":"charatercowo" ,"Text":"susi tadi menitipkannya padaku karena dia sedang terburu-buru"},
-	{"image":"npc4" ,"Text":"ah dari susi.."},
-	{"image":"npc4" ,"Text":"terimakasih banyak rudi"},
-	{"image":"charatercowo" ,"Text":"sama-sama afnan"},
+	{"Text":"halo"},
+	{"Text":"apakah kamu afnan?"},
+	{"Text":"...."},
+	{"Text":"ini aku membawa sesuatu untukmu"},
+	{"Text":"ini dari susi, dia menyuruhku untuk memberikan nya padamu"},
+	{"Text":"terimakasih"},
 ]
 
 #=============================================================================
@@ -73,20 +68,21 @@ func nextPhrase() -> void:
 #		Autoload.emit_signal("reward1")
 #		Global.coins = Global.reward +Global.coins
 		Global.misi_anter_selesai = true
-		DataManager.data["Objects"]["buah_diterima"]=["sudah"]
-		DataManager.save_data()
+#		Global.npc_afnan = true
+		Autoload.emit_signal("terima_buah_selesai")
+		Autoload.emit_signal("misi3")
 		return
 	finished = false
 #	$Name.bbcode_text = dialog[phraseNum]["Name"]
 	$Text.bbcode_text = dialog[phraseNum]["Text"]
 	$Text.visible_characters = 0
 	
-	var f = File.new()
-	var img =dialog[phraseNum]["image"] + ".png"
-	if f.file_exists(img):
-		$character.texture = load("res//:"+img)
-	else: 
-		$character.texture = null
+#	var f = File.new()
+#	var img =dialog[phraseNum]["image"] + ".png"
+#	if f.file_exists(img):
+#		$character.texture = load("res//:"+img)
+#	else: 
+#		$character.texture = null
 	
 	while $Text.visible_characters < len($Text.text):
 		$Text.visible_characters += 1

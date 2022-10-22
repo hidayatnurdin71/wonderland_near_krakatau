@@ -23,8 +23,9 @@ func _ready() -> void:
 		var _card_pos_x: float = (margin_r + _card.rect_position.x) - ((rect_size.x - _card.rect_size.x) / 2)
 		_card.rect_pivot_offset = (_card.rect_size / 2)
 		card_x_positions.append(_card_pos_x)
-		
+	
 	scroll_horizontal = card_x_positions[card_current_index]
+	print(card_x_positions)	
 	scroll()
 
 
@@ -55,7 +56,7 @@ func scroll() -> void:
 		scroll_duration,
 		Tween.TRANS_BACK,
 		Tween.EASE_OUT)
-	
+#	print(card_x_positions)	
 	for _index in range(card_nodes.size()):
 		var _card_scale: float = card_current_scale if _index == card_current_index else card_scale
 		scroll_tween.interpolate_property(

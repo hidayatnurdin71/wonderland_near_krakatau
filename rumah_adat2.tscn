@@ -1,0 +1,94 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://font/font_untuk_reward.tres" type="DynamicFont" id=1]
+[ext_resource path="res://tilemap/button/exitRight2.png" type="Texture" id=2]
+[ext_resource path="res://tilemap/MENU/ex button.png" type="Texture" id=3]
+[ext_resource path="res://tilemap/button/exitRight.png" type="Texture" id=4]
+[ext_resource path="res://tilemap/button/ui detail.png" type="Texture" id=5]
+[ext_resource path="res://tilemap/MENU/ex button2.png" type="Texture" id=6]
+[ext_resource path="res://tilemap/MENU/menu detail.png" type="Texture" id=7]
+[ext_resource path="res://tilemap/MENU/menu border 2.png" type="Texture" id=8]
+[ext_resource path="res://tilemap/pesagi.jpg" type="Texture" id=9]
+[ext_resource path="res://rumah_adat2.gd" type="Script" id=10]
+[ext_resource path="res://font/font_penjelasan.tres" type="DynamicFont" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="rumah_adat2" type="Node2D"]
+script = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 160, 80 )
+scale = Vector2( 0.187573, 0.187573 )
+texture = ExtResource( 9 )
+
+[node name="border" type="Sprite" parent="."]
+position = Vector2( 159.906, 80 )
+texture = ExtResource( 8 )
+
+[node name="exit" type="TouchScreenButton" parent="."]
+position = Vector2( 288, 146 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 2 )
+
+[node name="uidetail" type="Sprite" parent="."]
+position = Vector2( 264, 56 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="uidetail"]
+margin_left = -21.0
+margin_top = -5.0
+margin_right = 43.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 1 )
+text = "Detail"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="detail" type="TouchScreenButton" parent="uidetail"]
+position = Vector2( -41, -10 )
+scale = Vector2( 4, 1 )
+shape = SubResource( 1 )
+
+[node name="detail" type="Sprite" parent="."]
+position = Vector2( 160, 80 )
+texture = ExtResource( 7 )
+
+[node name="exitt" type="TouchScreenButton" parent="detail"]
+position = Vector2( 114, -69 )
+normal = ExtResource( 3 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="detail/exitt"]
+position = Vector2( 8, 8 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="detail"]
+margin_left = -112.0
+margin_top = -51.0
+margin_right = 112.0
+margin_bottom = 45.0
+custom_fonts/normal_font = ExtResource( 11 )
+text = "Lamban Pesagi merupakan Jenis rumah tradisional dari Lampung berasal dari kawasan Lampung Barat. Struktur rumahnya berupa rumah panggung. Ciri khasnya diantaranya pada tiang-tiang penyangganya yang berukuran lebih besar. Ciri lainnya yang membedakan Lamban Pesagi serta ketiga rumah sebelum yaitu lumbung padi yang dibangun dan terpisah dari rumah utama. Sementara itu, bagian kolong rumah sengaja dibiarkan kosong dan tidak difungsikan untuk ruang atau kegiatan apapun.
+
+Miniatur rumah adat ini berbentuk rumah panggung serupa dengan rumah-rumah adat lain yang berada di Sumatera, rumah adat Lampung ini memiliki bentuk rumah panggung. Konsepnya menyesuaikan kondisi geologis di kawasan sekitar sehingga dirancang khusus untuk menangkal gempa dan serangan hewan buas."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="released" from="exit" to="." method="_on_exit_released"]
+[connection signal="released" from="uidetail/detail" to="." method="_on_detail_released"]
+[connection signal="released" from="detail/exitt" to="." method="_on_exitt_released"]

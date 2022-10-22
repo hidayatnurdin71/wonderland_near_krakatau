@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=2]
+[gd_scene load_steps=145 format=2]
 
 [ext_resource path="res://scene/character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://masukrumah.tscn" type="PackedScene" id=2]
@@ -65,6 +65,16 @@
 [ext_resource path="res://character/Areanpc3.gd" type="Script" id=63]
 [ext_resource path="res://tilemap/button/exit2.tscn" type="PackedScene" id=64]
 [ext_resource path="res://tilemap/button/exit_to_menu.gd" type="Script" id=65]
+[ext_resource path="res://misi_caripisang.gd" type="Script" id=66]
+[ext_resource path="res://tilemap/button/pisangg.png" type="Texture" id=67]
+[ext_resource path="res://character/char4 lineout.png" type="Texture" id=68]
+[ext_resource path="res://tilemap/button/arrow2.png" type="Texture" id=69]
+[ext_resource path="res://character5.tscn" type="PackedScene" id=70]
+[ext_resource path="res://tilemap/button/arrow1.png" type="Texture" id=71]
+[ext_resource path="res://misi_caripisang2.gd" type="Script" id=72]
+[ext_resource path="res://jumlahreward2.gd" type="Script" id=73]
+[ext_resource path="res://character/susi.tscn" type="PackedScene" id=74]
+[ext_resource path="res://character/bapak_mc.tscn" type="PackedScene" id=75]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -754,37 +764,48 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 extents = Vector2( 17, 17 )
 
 [sub_resource type="CircleShape2D" id=57]
-radius = 29.4279
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id=58]
+radius = 29.4279
+
+[sub_resource type="CircleShape2D" id=59]
 radius = 8.0
 
-[sub_resource type="DynamicFontData" id=59]
+[sub_resource type="DynamicFontData" id=60]
 font_path = "res://font/dogica.ttf"
 
-[sub_resource type="DynamicFont" id=60]
+[sub_resource type="DynamicFont" id=61]
 size = 6
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = 2
 extra_spacing_bottom = 2
 extra_spacing_char = 1
-font_data = SubResource( 59 )
+font_data = SubResource( 60 )
 
-[sub_resource type="RectangleShape2D" id=61]
+[sub_resource type="RectangleShape2D" id=62]
 
-[sub_resource type="DynamicFontData" id=62]
+[sub_resource type="DynamicFontData" id=63]
 font_path = "res://font/AGoblinAppears-o2aV.ttf"
 
-[sub_resource type="DynamicFont" id=63]
+[sub_resource type="DynamicFont" id=64]
 size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = 2
 extra_spacing_char = 1
-font_data = SubResource( 62 )
+font_data = SubResource( 63 )
 
-[sub_resource type="Animation" id=64]
+[sub_resource type="SpriteFrames" id=65]
+animations = [ {
+"frames": [ ExtResource( 71 ), ExtResource( 69 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="Animation" id=66]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -800,7 +821,26 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="RectangleShape2D" id=65]
+[sub_resource type="RectangleShape2D" id=67]
+
+[sub_resource type="Animation" id=68]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="CircleShape2D" id=69]
+radius = 25.02
 
 [node name="peta" type="Node2D"]
 position = Vector2( -1, 0 )
@@ -819,7 +859,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 1536, 896 )
 
 [node name="bacground2" type="Sprite" parent="."]
-position = Vector2( 241, 96 )
+position = Vector2( 241, 95 )
 texture = ExtResource( 54 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 1600, 848 )
@@ -981,6 +1021,10 @@ position = Vector2( -2, 0 )
 position = Vector2( 26, 373 )
 texture = ExtResource( 38 )
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/sprite_cewe"]
+position = Vector2( -2, 6 )
+shape = SubResource( 57 )
+
 [node name="char_ceweMisi" parent="YSort" instance=ExtResource( 61 )]
 visible = false
 position = Vector2( 159, 300 )
@@ -992,7 +1036,7 @@ script = ExtResource( 62 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Areacharcewe"]
 position = Vector2( 164, 299 )
-shape = SubResource( 57 )
+shape = SubResource( 58 )
 
 [node name="npc_3" type="StaticBody2D" parent="YSort"]
 position = Vector2( 516, 175 )
@@ -1002,7 +1046,11 @@ texture = ExtResource( 44 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/npc_3"]
 position = Vector2( 0, 5 )
-shape = SubResource( 58 )
+shape = SubResource( 59 )
+
+[node name="lineout" type="Sprite" parent="YSort/npc_3"]
+visible = false
+texture = ExtResource( 68 )
 
 [node name="Areanpc3" parent="YSort" instance=ExtResource( 60 )]
 position = Vector2( 516, 181 )
@@ -1402,6 +1450,21 @@ position = Vector2( 747, -144 )
 [node name="pohon pisang" parent="YSort" instance=ExtResource( 53 )]
 position = Vector2( 811, 8 )
 
+[node name="pohon pisang2" parent="YSort" instance=ExtResource( 53 )]
+position = Vector2( -25, -127 )
+
+[node name="characterNPC_afnan" parent="YSort" instance=ExtResource( 70 )]
+visible = false
+position = Vector2( 683, 397 )
+
+[node name="bapak_mc" parent="YSort" instance=ExtResource( 75 )]
+visible = false
+position = Vector2( -137, 341 )
+
+[node name="susi" parent="YSort" instance=ExtResource( 74 )]
+visible = false
+position = Vector2( 370, -52 )
+
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 17 )
 
@@ -1418,7 +1481,7 @@ margin_left = -40.4118
 margin_top = -25.0
 margin_right = 38.5882
 margin_bottom = 25.0
-custom_fonts/normal_font = SubResource( 60 )
+custom_fonts/normal_font = SubResource( 61 )
 text = "aaaaa"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1430,18 +1493,24 @@ wait_time = 0.05
 [node name="tombolnxt" type="TouchScreenButton" parent="HUD/panduan_penggunaan"]
 position = Vector2( 28.2354, 17 )
 scale = Vector2( 0.774125, 0.56 )
-shape = SubResource( 61 )
+shape = SubResource( 62 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HUD/panduan_penggunaan/tombolnxt"]
 margin_left = 3.6474
 margin_top = 5.35713
 margin_right = 21.6474
 margin_bottom = 21.3571
-custom_fonts/normal_font = SubResource( 63 )
+custom_fonts/normal_font = SubResource( 64 )
 text = " >"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="arrow" type="AnimatedSprite" parent="HUD/panduan_penggunaan"]
+position = Vector2( 28.2353, 37 )
+frames = SubResource( 65 )
+frame = 1
+playing = true
 
 [node name="Sprite" type="Sprite" parent="HUD"]
 position = Vector2( 160, 8 )
@@ -1483,10 +1552,11 @@ position = Vector2( 160, 72 )
 scale = Vector2( 4.23333, 4.23333 )
 texture = ExtResource( 36 )
 hframes = 8
+frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/rewardcoin"]
 autoplay = "animasicoin"
-anims/animasicoin = SubResource( 64 )
+anims/animasicoin = SubResource( 66 )
 
 [node name="x" type="RichTextLabel" parent="HUD/rewardcoin"]
 margin_left = -9.0
@@ -1515,7 +1585,48 @@ __meta__ = {
 [node name="sentuh" type="TouchScreenButton" parent="HUD/rewardcoin"]
 position = Vector2( -37.7953, -17.0079 )
 scale = Vector2( 3.7685, 1.88819 )
-shape = SubResource( 65 )
+shape = SubResource( 67 )
+
+[node name="rewardcoin2" type="Sprite" parent="HUD"]
+visible = false
+position = Vector2( 160, 72 )
+scale = Vector2( 4.23333, 4.23333 )
+texture = ExtResource( 36 )
+hframes = 8
+frame = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/rewardcoin2"]
+autoplay = "animasicoin"
+anims/animasicoin = SubResource( 68 )
+
+[node name="x" type="RichTextLabel" parent="HUD/rewardcoin2"]
+margin_left = -9.0
+margin_top = 9.0
+margin_bottom = 20.0
+custom_fonts/normal_font = ExtResource( 43 )
+meta_underlined = false
+text = "x"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="jumlahreward2" type="RichTextLabel" parent="HUD/rewardcoin2"]
+margin_top = 9.0
+margin_right = 15.0
+margin_bottom = 18.0
+custom_fonts/normal_font = ExtResource( 43 )
+text = "a"
+scroll_active = false
+script = ExtResource( 73 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sentuh2" type="TouchScreenButton" parent="HUD/rewardcoin2"]
+position = Vector2( -37.7953, -17.0079 )
+scale = Vector2( 3.7685, 1.88819 )
+shape = SubResource( 67 )
 
 [node name="exit" parent="HUD" instance=ExtResource( 64 )]
 position = Vector2( 275, -6.29825e-11 )
@@ -1532,6 +1643,31 @@ position = Vector2( -191, 320 )
 pause_mode = 2
 autoplay = true
 
+[node name="misi_caripisang" type="Area2D" parent="."]
+visible = false
+script = ExtResource( 66 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="misi_caripisang"]
+position = Vector2( 811, 9 )
+shape = SubResource( 69 )
+
+[node name="pisangg" type="Sprite" parent="misi_caripisang"]
+position = Vector2( 805, -28 )
+texture = ExtResource( 67 )
+
+[node name="misi_caripisang2" type="Area2D" parent="."]
+visible = false
+position = Vector2( -834, -138 )
+script = ExtResource( 72 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="misi_caripisang2"]
+position = Vector2( 811, 9 )
+shape = SubResource( 69 )
+
+[node name="pisangg" type="Sprite" parent="misi_caripisang2"]
+position = Vector2( 805, -28 )
+texture = ExtResource( 67 )
+
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="setelah_sabit_ketemu" to="setelah_sabit_ketemu" method="_on_setelah_sabit_ketemu_body_entered"]
 [connection signal="body_entered" from="YSort/Areacharcewe" to="YSort/Areacharcewe" method="_on_Areacharcewe_body_entered"]
@@ -1542,5 +1678,10 @@ autoplay = true
 [connection signal="body_exited" from="YSort/areapapan" to="YSort/areapapan" method="_on_areapapan_body_exited"]
 [connection signal="pressed" from="HUD/panduan_penggunaan/tombolnxt" to="HUD/panduan_penggunaan" method="_on_tombolnxt_pressed"]
 [connection signal="pressed" from="HUD/rewardcoin/sentuh" to="HUD" method="_on_sentuh_pressed"]
+[connection signal="released" from="HUD/rewardcoin2/sentuh2" to="HUD" method="_on_sentuh2_released"]
 [connection signal="coin_collected" from="COIN" to="YSort/character" method="_on_COIN_coin_collected"]
 [connection signal="body_entered" from="awalmulaigame" to="awalmulaigame" method="_on_awalmulaigame_body_entered"]
+[connection signal="body_entered" from="misi_caripisang" to="misi_caripisang" method="_on_misi_caripisang_body_entered"]
+[connection signal="body_entered" from="misi_caripisang2" to="misi_caripisang2" method="_on_misi_caripisang_body_entered"]
+
+[editable path="YSort/characterNPC_afnan"]

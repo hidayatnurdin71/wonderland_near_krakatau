@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://tilemap/2.jpg" type="Texture" id=1]
+[ext_resource path="res://tilemap/MENU/menu border 2.png" type="Texture" id=2]
+[ext_resource path="res://tilemap/button/exitRight.png" type="Texture" id=3]
+[ext_resource path="res://tilemap/button/exitRight2.png" type="Texture" id=4]
+[ext_resource path="res://rumah adat.gd" type="Script" id=5]
+[ext_resource path="res://tilemap/MENU/ex button.png" type="Texture" id=6]
+[ext_resource path="res://tilemap/MENU/ex button2.png" type="Texture" id=7]
+[ext_resource path="res://tilemap/MENU/menu detail.png" type="Texture" id=8]
+[ext_resource path="res://font/font_untuk_reward.tres" type="DynamicFont" id=9]
+[ext_resource path="res://tilemap/button/ui detail.png" type="Texture" id=10]
+[ext_resource path="res://font/font_penjelasan.tres" type="DynamicFont" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="rumah_adat_1" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 160, 80 )
+scale = Vector2( 0.187573, 0.187573 )
+texture = ExtResource( 1 )
+
+[node name="border" type="Sprite" parent="."]
+position = Vector2( 159.906, 80 )
+texture = ExtResource( 2 )
+
+[node name="exit" type="TouchScreenButton" parent="."]
+position = Vector2( 288, 146 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+
+[node name="uidetail" type="Sprite" parent="."]
+position = Vector2( 264, 56 )
+texture = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="uidetail"]
+margin_left = -21.0
+margin_top = -5.0
+margin_right = 43.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 9 )
+text = "Detail"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="uidetail"]
+position = Vector2( -41, -10 )
+scale = Vector2( 4, 1 )
+shape = SubResource( 1 )
+
+[node name="detail" type="Sprite" parent="."]
+visible = false
+position = Vector2( 160, 80 )
+texture = ExtResource( 8 )
+
+[node name="exitt" type="TouchScreenButton" parent="detail"]
+position = Vector2( 114, -69 )
+normal = ExtResource( 6 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="detail/exitt"]
+position = Vector2( 8, 8 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="detail"]
+margin_left = -112.0
+margin_top = -51.0
+margin_right = 112.0
+margin_bottom = 45.0
+custom_fonts/normal_font = ExtResource( 11 )
+text = "Nowou Sesat dalam bahasa Indonesia kemudian diartikan juga sebagai balai yang digunakan untuk melakukan berbagai kegiatan adat. Masyarakat Lampung memiliki kitab kuno yaitu Kitab Kuntara Raja Niti. Di dalamnya berisi berbagai prinsip serta aturan yang harus ditaati masyarakat Lampung dan keturunannya dalam menjalani kehidupan sehari-hari. Termasuk diantaranya pembangunan rumah adat. Pada dasarnya Nowou Sesat merupakan rumah panggung yang terbagi lagi menjadi beberapa ruang dengan fungsi berbeda-beda, diantaranya:
+
+- Ijan Geladak dengan akses utama menuju rumah dengan tangga yang dinamakan juga Rurung Agung. Ijan Geladak juga sering dijadikan sebagai tempat berjaga saat ada upacara adat atau kegiatan tertentu. Selain itu, Ijan Geladak seringpula difungsikan sebagai ruang penyambutan tamu penting. Menurut adat Lampung, tamu-tamu kehormatan akan disambut dengan tarian khas yaitu tarian Ijan Geladak.
+
+-Anjungan merupakan area serambi yang biasanya berada depan rumah setelah melewati Ijan Geladak. Area Anjungan ini biasanya digunakan untuk menyambut tamu kehormatan, dan sering dijadikan sebagai tempat bermusyawarah atau beristirahat bagi para petinggi-petinggi adat.
+Ruang Paseban difungsikan sebagai ruang utama dari keseluruhan Nowou Sesat. Musyawarah ini sendiri umumnya membahas berbagai bahasan tertentu mulai dari membahas perencanaan acara adat yang dilangsungkan secara teratur atau menyelesaikan masalah-masalah di antara masyarakat. Ruang Paseban sendiri kemudian dianggap sebagai ruangan yang terhormat dan sacral oleh masyarakat Lampung. Tak sembarang orang dapat memasuki ruang paseban, hanya petinggi-petinggi adat saja serta dan tokoh terhormat yang diperbolehkan masuk serta melakukan berbagai kegiatan adat di dalamnya.
+
+-Ruang Tetabuhan Lampung dengan kesenian musik berupa Gamelan Lampung. Ruang Tetabuhan ini digunakan untuk menyimpan berbagai alat musik berupa tetabuhan dan gamelan khas Lampung. Biasanya Gamelan Lampung kemudian ditampilkan saat upacara adat berlangsung. Uniknya, Gamelan ini kemudian terinspirasi dari budaya di Kesultanan Banten cukup dekat lokasinya dengan Lampung sehingga terdapat banyak kesamaan dengan Gamelan Jawa.
+
+-Ruang Gajah Merem, Gajah merupakan hewan ikonik yang hidup di hutan-hutan Lampung yang kemudian erat hubungannya dengan masyarakat sekitar. Sosok gajah ini juga diasosiasikan sebagai sosok pemimpin. Sesuai nama ruangannya, Gajah Merem, kemudian digunakan juga oleh para pemimpin adat untuk beristirahat. Saat Pepung atau rapat adat berlangsung selama berhari-hari. Karenanya para petinggi adat kemudian diharuskan untuk tinggal sementara serta beristirahat di Nowou Sesat. Bangunan Ruang Gajah Merem juga kerap digunakan oleh para petinggi adat untuk melakukan berbagai musyawarah."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="released" from="exit" to="." method="_on_exit_released"]
+[connection signal="released" from="uidetail/TouchScreenButton" to="." method="_on_TouchScreenButton_released"]
+[connection signal="released" from="detail/exitt" to="." method="_on_exitt_released"]
