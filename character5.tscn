@@ -94,6 +94,7 @@ action = "oke"
 [node name="tutup" type="AnimatedSprite" parent="hud/dialog_NPC/tombol"]
 frames = SubResource( 6 )
 animation = "tombolx"
+frame = 1
 playing = true
 
 [node name="Sprite" type="Sprite" parent="hud/dialog_NPC"]
@@ -133,7 +134,6 @@ action = "oke"
 [node name="tutup" type="AnimatedSprite" parent="hud/dialog_halo/tombol2"]
 frames = SubResource( 8 )
 animation = "tombolx"
-frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="hud/dialog_halo"]

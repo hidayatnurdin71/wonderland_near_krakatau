@@ -1,8 +1,13 @@
 extends Node2D
 
 onready var character = $YSort/character
-
+onready var pisang = $YSort/character/pisang
+onready var misi_cari_pisang = $YSort/character/CanvasLayer/misitemukan_pisang
 func _ready():
+	if DataManager.data["Objects"].has("pisang1_selesai"):
+		misi_cari_pisang.queue_free()
+	if DataManager.data["Objects"].has("buah_diterima"):
+		pisang.queue_free()
 	if DataManager.data["Objects"].has("AREAUDAHDI_INJEK"):
 		$book_01.show()
 	if DataManager.data["Objects"].has("character_perpus"):
@@ -12,6 +17,7 @@ func _ready():
 	if DataManager.data["Objects"].has("buku_muncul"):
 		on_muncul_buku()
 	if DataManager.data["Objects"].has("hapus_buku"):
+		Global.misi_keempat = true
 		$book_01.queue_free()
 	if DataManager.data["Objects"].has("pisang1_selesai"):
 		$YSort/character/CanvasLayer/bar_misi/cari_pisang.queue_free()
@@ -39,6 +45,7 @@ func on_buku_diambil():
 	$CanvasLayer/oke.show()
 	$book_01.queue_free()
 	Autoload.emit_signal("misi2")
+	Global.misi_keempat = true
 	DataManager.data["Objects"]["hapus_buku"] = "selesai"
 	DataManager.save_data()
 func _process(delta):

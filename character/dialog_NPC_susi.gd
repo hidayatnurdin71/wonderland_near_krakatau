@@ -56,10 +56,12 @@ func nextPhrase() -> void:
 	if phraseNum >= len(dialog):
 		queue_free()
 		get_tree().paused = false
-		DataManager.data["Objects"]["dialog_susi_memberitahu"]=["sudah"]
-		DataManager.save_data()
+		
 		Autoload.emit_signal("bapakMC_muncul")
 		Autoload.emit_signal("susi_false")
+		
+		DataManager.data["Objects"]["dialog_susi_memberitahu"]=["sudah"]
+		DataManager.save_data()
 		return
 	finished = false
 	

@@ -32,3 +32,10 @@ var dialog_pisang = false
 var dialogmisi_pisang = true
 var misi4muncul = false
 var npc_afnan = false
+
+var misi_pertama = true
+var misi_kedua = true
+var misi_ketiga = false
+var misi_keempat = false
+var misi_terakhir = false
+var susii = false

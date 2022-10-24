@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://tilemap/MENU/BG MENU.jpg" type="Texture" id=1]
 [ext_resource path="res://tilemap/MENU/judul2.png" type="Texture" id=2]
@@ -8,8 +8,10 @@
 [ext_resource path="res://tilemap/button/exit2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scene/PENGATURAN.gd" type="Script" id=7]
 [ext_resource path="res://scene/MULAI.gd" type="Script" id=8]
+[ext_resource path="res://scene/MENU.gd" type="Script" id=9]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 9 )
 
 [node name="BG" type="Sprite" parent="."]
 position = Vector2( 158.667, 54 )

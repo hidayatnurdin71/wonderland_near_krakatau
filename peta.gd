@@ -34,6 +34,7 @@ func _ready():
 		Global.misi_anter_selesai = true
 		$YSort/npc_3.queue_free()
 		$YSort/characterNPC_afnan.show()
+		Global.npc_afnan = true
 	if Global.misi_temukan_pisang == true:
 		$misi_caripisang.queue_free()
 	if Global.misi_temukan_pisang2 == true:
@@ -45,7 +46,7 @@ func _ready():
 	if DataManager.data["Objects"].has("pisang_ditemukan"):
 		$misi_caripisang.queue_free()
 	if DataManager.data["Objects"].has("pisang_ditemukan2"):
-		$misi_caripisang.queue_free()
+		$misi_caripisang2.queue_free()
 		$YSort/susi.show()
 #	if DataManager.data["Objects"].has("misipertama"):
 #		$Area2D.queue_free()
@@ -66,6 +67,7 @@ func _ready():
 	if DataManager.data["Objects"].has("areamuncul"):
 		Global.areaada = true
 	if DataManager.data["Objects"].has("misi_anter"):
+		Global.misi_anter_selesai = false
 		$YSort/Areacharcewe.queue_free()
 		$YSort/char_ceweMisi.queue_free()
 	if DataManager.data["Objects"].has("bushpindah"):
@@ -76,6 +78,8 @@ func _ready():
 	if DataManager.data["Objects"].has("misi4_muncul"):
 		Global.npc_afnan = false
 	if DataManager.data["Objects"].has("dialog_susi_memberitahu"):
+		Global.misi_terakhir = true
+#		Autoload.emit_signal("bpk_muncul")
 		$YSort/bapak_mc.show()
 	if DataManager.data["Objects"].has("misi_cari_pisang"):
 		$misi_caripisang.show()
@@ -83,8 +87,13 @@ func _ready():
 	if DataManager.data["Objects"].has("pisang1_selesai"):
 		$misi_caripisang.queue_free()
 	if DataManager.data["Objects"].has("pisang2_selesai"):
+#		Global.misi_ketiga = true
+#		Global.npc_afnan = false
+		Global.susii = true
+		Autoload.emit_signal("susi_muncul")
 		$misi_caripisang2.queue_free()
 		$YSort/susi.show()
+		Global.npc_afnan = false
 	if DataManager.data["Objects"].has("misi_pertama_sudah_muncul"):
 		$Area2D.queue_free()
 	if DataManager.data["Objects"].has("celurit_muncul"):
@@ -94,6 +103,18 @@ func _ready():
 			$Celurite.show()
 	if DataManager.data["Objects"].has("ending"):
 		$YSort/bapak_mc.queue_free()
+	if DataManager.data["Objects"].has("misi_keempat_terkunci"):
+		Global.misi_keempat = false
+		if DataManager.data["Objects"].has("hapus_buku"):
+			Global.misi_keempat = true
+	if DataManager.data["Objects"].has("misi_ketiga_terkunci"):
+		Global.misi_ketiga = false
+		if DataManager.data["Objects"].has("pisang2_selesai"):
+			Global.misi_ketiga = true
+			Global.npc_afnan = false
+	if DataManager.data["Objects"].has("misi_terakhir_muncul"):
+		Global.misi_terakhir = true
+	
 func on_bayangan_papan():
 	if Global.bayangan== true:
 		$YSort/bayangan_papan.show()
@@ -153,8 +174,8 @@ func on_terima_buah_selesai():
 	Global.npc_afnan = true
 	if Global.misi_anter_selesai == true:
 		$YSort/npc_3.queue_free()
-	DataManager.data["Objects"]["buah_diterima"]=["sudah"]
-	DataManager.save_data()
+		DataManager.data["Objects"]["buah_diterima"]=["sudah"]
+		DataManager.save_data()
 func on_lineout1():
 	$YSort/npc_3/lineout.show()
 func on_lineout2():
@@ -176,9 +197,13 @@ func on_misipisang_ditemukan2():
 	$YSort/susi.show()
 	$misi_caripisang2.queue_free()
 	$HUD/rewardcoin2.show()
+	Global.misi_ketiga = true
+	Global.susii = true
+	Autoload.emit_signal("susi_muncul")
 	DataManager.data["Objects"]["pisang2_selesai"]=["sudah"]
 	DataManager.save_data()
 func on_bapak_muncul():
+#	Autoload.emit_signal("bapakMC_muncul")
 #	get_node("bapak_mc").disable = false
 	$YSort/bapak_mc.show()
 func on_ending():

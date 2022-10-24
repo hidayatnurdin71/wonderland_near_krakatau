@@ -1,8 +1,11 @@
 extends Node2D
 
 onready var character = $YSort/character
+onready var pisang = $YSort/character/pisang
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if DataManager.data["Objects"].has("buah_diterima"):
+		pisang.queue_free()
 	if DataManager.data["Objects"].has("character_dalem"):
 		character.global_position = DataManager.data["Objects"]["character_dalem"]
 		

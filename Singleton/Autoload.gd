@@ -50,3 +50,5 @@ signal misi5
 signal dapetmisi2
 signal dapetmisi4
 signal ending
+signal bpk_muncul
+signal susi_muncul

@@ -3,6 +3,7 @@ extends Area2D
 
 func _ready():
 	if DataManager.data["Objects"].has("sudahterimabuah"):
+		Global.misi_ketiga = true
 		Global.buah = false
 	
 func _input(event):
@@ -10,6 +11,8 @@ func _input(event):
 		if Global.i == true:
 			if Global.buah == true :
 				Autoload.emit_signal("terima_buah")
+				Global.misi_ketiga = true
+				Global.misi_keempat = true
 				DataManager.data["Objects"]["sudahterimabuah"]= "selesai"
 				DataManager.save_data()
 			if Global.buah == false :
